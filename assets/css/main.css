@@ -1,0 +1,329 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+* {
+  box-sizing: border-box; }
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px; }
+
+/*custom font*/
+/*basic reset*/
+* {
+  margin: 0;
+  padding: 0; }
+
+html {
+  background: linear-gradient(rgba(225, 225, 225, 0.9), rgba(238, 37, 98, 0.9)); }
+
+body {
+  font-family: montserrat, arial, verdana; }
+
+p, label {
+  font-size: 0.8em;
+  text-align: left;
+  padding: 5px 0;
+  margin-top: 8px; }
+
+label {
+  color: gray; }
+
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white; }
+
+input[type='radio']:checked:after {
+  width: 16px;
+  height: 16px;
+  border-radius: 15px;
+  top: -3px;
+  left: -1px;
+  position: relative;
+  background-color: #ee2562;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white; }
+
+select {
+  width: 100%;
+  margin: 5px 0;
+  height: 30px;
+  color: #fff;
+  font-size: 13px;
+  background-color: #ee2562;
+  border: #FEFEFE 1px solid;
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+
+#msform {
+  width: 400px;
+  margin: 40px auto;
+  text-align: center;
+  position: relative;
+  padding-bottom: 90px; }
+
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+  /*stacking fieldsets above each other*/
+  position: relative;
+  overflow: hidden;
+  display: none; }
+  #msform fieldset.active {
+    display: block; }
+
+/*Hide all except first fieldset*/
+/*inputs*/
+#msform input, #msform textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #ee2562;
+  font-size: 13px; }
+
+/* previous, next, submit buttons*/
+#msform .action-button {
+  width: 100px;
+  background: #ee2562;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+  letter-spacing: 0.07em; }
+
+#msform .action-button:hover, #msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #fff; }
+
+/*field heading*/
+.fs-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 10px; }
+
+/*second field heading*/
+.fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px; }
+
+/*progressbar*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step; }
+
+#progressbar li {
+  list-style-type: none;
+  color: #ee2562;
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 33.33%;
+  float: left;
+  position: relative; }
+
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 10px;
+  color: #333;
+  background: #fff;
+  border-radius: 3px;
+  margin: 0 auto 5px auto; }
+
+/*progressbar connectors*/
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #ee2562;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1;
+  /*put it behind the numbers*/ }
+
+#progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none; }
+
+/*marking active/completed steps*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before, #progressbar li.active:after {
+  background: #ee2562;
+  color: #fff; }
+
+#name {
+  height: 35px; }
+
+.onoff, .tattoos {
+  zoom: 1;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  line-height: 37px;
+  border: 1px solid #ee2562;
+  margin-bottom: 19px; }
+
+.onoff label,
+.tattoos label {
+  position: absolute;
+  top: -8px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: #fff;
+  font-weight: bold;
+  color: #FFF;
+  -webkit-transition: background 0.3s, text-indent 0.3s;
+  -moz-transition: background 0.3s, text-indent 0.3s;
+  -o-transition: background 0.3s, text-indent 0.3s;
+  transition: background 0.3s, text-indent 0.3s;
+  text-indent: 70px; }
+
+.onoff label:after {
+  content: 'Female';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 140px;
+  width: 100%;
+  font-size: 12px;
+  color: #ee2562;
+  z-index: 1; }
+
+.tattoos label:after {
+  content: 'HELL YAS';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 140px;
+  width: 100%;
+  font-size: 12px;
+  color: #ee2562;
+  z-index: 1; }
+
+.onoff label:before,
+.tattoos label:before {
+  content: '';
+  width: 155px;
+  height: 39.4px;
+  border-radius: 2px;
+  background: #ee2562;
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  display: block;
+  -webkit-transition: left 0.3s;
+  -moz-transition: left 0.3s;
+  -o-transition: left 0.3s;
+  transition: left 0.3s; }
+
+.onoff input:checked + label,
+.tattoos input:checked + label {
+  background: #fff;
+  text-indent: -80px; }
+
+.onoff input:checked + label:after {
+  content: 'Male';
+  color: #ee2562; }
+
+.tattoos input:checked + label:after {
+  content: 'HELL NO';
+  color: #ee2562; }
+
+.onoff input:checked + label:before,
+.tattoos input:checked + label:before {
+  left: 160px;
+  background-color: #ee2562; }
+
+#rangevalue {
+  color: #ee2562;
+  font-size: 13px; }
+
+#slidecontainer {
+  width: 100%; }
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #fff;
+  outline: none; }
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 27px;
+  height: 30px;
+  background: #ee2562;
+  cursor: pointer; }
+
+.slider::-moz-range-thumb {
+  width: 27px;
+  height: 30px;
+  background: #ee2562;
+  cursor: pointer; }
+
+.hair-container {
+  padding-bottom: 5px; }
+  .hair-container .hair {
+    display: flex; }
+    .hair-container .hair input {
+      margin-top: 10px; }
+    .hair-container .hair label {
+      margin-right: 40px;
+      margin-left: 10px;
+      margin-top: 7px;
+      white-space: nowrap; }
+
+.height {
+  width: 33.33%;
+  display: flex;
+  height: 170px; }
+  .height input:hover {
+    background-color: #ee2562;
+    transition: 1.3s; }
+
+.lookingfor-container, .type-container {
+  padding-bottom: 14px; }
+  .lookingfor-container .looking, .lookingfor-container .type, .type-container .looking, .type-container .type {
+    display: flex; }
+    .lookingfor-container .looking input, .lookingfor-container .type input, .type-container .looking input, .type-container .type input {
+      margin-top: 10px; }
+    .lookingfor-container .looking label, .lookingfor-container .type label, .type-container .looking label, .type-container .type label {
+      margin-right: 30px;
+      margin-left: 10px;
+      margin-top: 7px;
+      white-space: nowrap; }
+
+/*# sourceMappingURL=main.css.map */
