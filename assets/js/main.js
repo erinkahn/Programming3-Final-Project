@@ -92,9 +92,10 @@ var straightUpForm = function() {
 		currentFieldset++; //go to next fieldset
 		console.log("next clicked, show fieldset", currentFieldset);
 
-		loopThroughFieldsets();
 
-		if (currentFieldset >= allFieldsets.length) {
+		if (currentFieldset < allFieldsets.length) {
+			loopThroughFieldsets();
+		} else {
 			alert('Your account has been created!'); 
 		}
 	}
@@ -103,10 +104,8 @@ var straightUpForm = function() {
 		currentFieldset--; //go to previous fieldset
 		console.log("previous clicked, show fieldset", currentFieldset);
 
-		loopThroughFieldsets();
-
-		if (currentFieldset < 0) {
-			// stay on the first page, do nothing  //--------
+		if (currentFieldset >= 0) { // sanity check
+			loopThroughFieldsets();
 		}
 	}
 

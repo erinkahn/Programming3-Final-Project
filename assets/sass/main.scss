@@ -93,9 +93,9 @@ select{
 	border: 0 none;
 	border-radius: 3px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-	padding: 20px 30px;
+	padding: 20px 35px;
 	box-sizing: border-box;
-	width: 80%;
+	width: auto;
 	margin: 0 auto;;
 	
 	/*stacking fieldsets above each other*/
@@ -225,7 +225,7 @@ select{
 
 //gender and tattoos onoff switch-----------------------------------------
 
-.onoff, .tattoos {
+.onoff, .onoff-tat{
   // display: -moz-inline-stack;
   // display: inline-block;
   // *vertical-align: auto;
@@ -239,8 +239,7 @@ select{
   margin-bottom: 19px;
 }
 
-.onoff label,
-.tattoos label {
+.onoff label, .onoff-tat label{
   position: absolute;
   top: -8px;
   width: 100%;
@@ -268,8 +267,8 @@ select{
   z-index: 1;
 }
 
-.tattoos label:after{
-  content: 'HELL YAS';
+.onoff-tat label:after {
+  content: 'YES';
   display: block;
   position: absolute;
   top: 0px;
@@ -280,8 +279,7 @@ select{
   z-index: 1;	
 }
 
-.onoff label:before,
-.tattoos label:before {
+.onoff label:before, .onoff-tat label:before {
   content: '';
   width: 155px;
   height: 39.4px;
@@ -299,7 +297,7 @@ select{
 }
 
 .onoff input:checked + label,
-.tattoos input:checked + label {
+.onoff-tat input:checked + label{
   background: #fff;
   text-indent: -80px;
 }
@@ -309,13 +307,13 @@ select{
   color: #ee2562;
 }
 
-.tattoos input:checked + label:after{
-  content: 'HELL NO';
+.onoff-tat input:checked + label:after{
+  content: 'NO';
   color: #ee2562;
 }
 
 .onoff input:checked + label:before,
-.tattoos input:checked + label:before {
+.onoff-tat input:checked + label:{
   left: 160px;
   background-color: #ee2562;
 }
@@ -327,7 +325,7 @@ select{
 	font-size: 13px;
 }
 
-#slidecontainer {
+.slidecontainer {
     width: 100%;
 }
 
@@ -385,52 +383,58 @@ select{
 // short or tall --------------------------------------------------------
 
 
-.height{
-	width: 33.33%;
-	display: flex;
-	height: 170px;
+// .height{
+// 	width: 33.33%;
+// 	display: flex;
+// 	height: 170px;
 
-	input:hover{
-		background-color: #ee2562;
-		transition: 1.3s;
-	}
-}
+// 	input:hover{
+// 		background-color: #ee2562;
+// 		transition: 1.3s;
+// 	}
+// }
 
 
 // body type selection --------------------------------------------------
 
-.lookingfor-container{
-	padding-bottom: 14px;
+// .lookingfor-container{
+// 	padding-bottom: 14px;
 
-	.looking{
-		display: flex;
+// 	.looking{
+// 		display: flex;
 
-		input{
-			margin-top: 10px;
-		}
+// 		input{
+// 			padding-bottom: 35px;
+// 		}
 
-		label{
-			margin-right: 30px;
-			margin-left: 10px;
-			margin-top: 7px;
-			white-space: nowrap;
-		}
+// 		label{
+// 			white-space: nowrap;
+// 			margin-right: 30px;
+// 			padding-bottom: 30px;
+// 			padding-right: 30px;
+// 		}
 
-	}	
+// 	}	
+// }
+
+
+// type of person --------------------------------------------------
+
+// .type{
+// 	padding-bottom: 14px;
+// 	display: flex;
+// 	padding-top: 10px;
+
+// 	label{
+
+// 	}
+	
+// }
+
+// height of guy --------------------------------------------------
+
+.man-height{
+	white-space: nowrap;
 }
 
 
-// type of guy --------------------------------------------------
-
-.type-container{
-	padding-bottom: 14px;
-	display: flex;
-
-	.type{
-		justify-content: space-between;
-
-		label{
-			padding-left: 10px;
-		}
-
-}

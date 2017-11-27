@@ -44,7 +44,7 @@
 
         <p class="age">Your age (21+ only)</p>
         <div class="slidecontainer">
-          <input type = "range" min="21" max="75" class="slider" id="myRange" onchange="rangevalue.value=value"/>
+          <input type = "range" min="21" max="50" class="slider" id="myRange" onchange="rangevalue.value=value"/>
           <output id="rangevalue">50</output>
         </div>
 
@@ -77,7 +77,7 @@
 
         <p>What's your body type?</p>
         <select>
-          <option disabled value="I am">I'm...</option>
+          <option selected="true" disabled="disabled">I'm...</option>
           <option value="petite">I'm petite</option>
           <option value="thin">I'm thin</option>
           <option value="cushion">I've got some cushion</option>
@@ -111,7 +111,7 @@
         <h3 class="fs-subtitle">Let's find you a good match</h3>
 
         <div class="type-container">
-          <p>What type of guy are you looking for?</p>
+          <p>What type of person are you looking for?</p>
           <div class="type">
               <input type="checkbox" name="type">
               <label for="type">nerdy</label>
@@ -124,9 +124,9 @@
               <input type="checkbox" name="type">
               <label for="type">hipster</label>
               <input type="checkbox" name="type">
-              <label for="type">grungy</label>
-              <input type="checkbox" name="type">
               <label for="type">sensitive</label>
+              <input type="checkbox" name="type">
+              <label for="type">quiet</label>
            </div>
            <div class="type"> 
               <input type="checkbox" name="type">
@@ -134,7 +134,7 @@
               <input type="checkbox" name="type">
               <label for="type">clingy</label>
               <input type="checkbox" name="type">
-              <label for="type">intelligent</label>
+              <label for="type">smart</label>
            </div>
            <div class="type">
               <input type="checkbox" name="type">
@@ -142,35 +142,43 @@
               <input type="checkbox" name="type">
               <label for="type">musical</label>
               <input type="checkbox" name="type">
-              <label for="type">driven</label>
+              <label for="type">romantic</label>
            </div>
           <div class="type">
-            <input type="checkbox" name="type">
-            <label for="type">friendly</label>
             <input type="checkbox" name="type">
             <label for="type">patient</label>
             <input type="checkbox" name="type">
             <label for="type">active</label>
+            <input type="checkbox" name="type">
+            <label for="type">kind</label>
           </div>
           <div class="type">
             <input type="checkbox" name="type">
             <label for="type">lazy</label>
             <input type="checkbox" name="type">
-            <label for="type">smooth</label>
+            <label for="type">confident</label>
             <input type="checkbox" name="type">
-            <label for="type">gentleman</label>
+            <label for="type">thoughtful</label>
+          </div>
+          <div class="type">
+            <input type="checkbox" name="type">
+            <label for="type">thoughtful</label>
+            <input type="checkbox" name="type">
+            <label for="type">friendly</label>
+            <input type="checkbox" name="type">
+            <label for="type">loud</label>
           </div>
         </div>
 
         <p class="age">How old do you want this man to be?</p>
         <div class="slidecontainer">
-          <input type = "range" min="21" max="75" class="slider" id="myRange" onchange="rangevalue.value=value"/>
+          <input type = "range" min="21" max="50" class="slider" id="myRange" onchange="rangevalue.value=value"/>
           <output id="rangevalue">50</output>
         </div>
 
         <p>What's your ideal perfect date?</p>
         <select>
-          <option disabled value="hm">hm...</option>
+          <option selected="true" disabled="disabled">hm...</option>
           <option value="movies">see a movie</option>
           <option value="netflix">netflix and chill</option>
           <option value="dinner">dinner</option>
@@ -179,19 +187,21 @@
           <option value="laid">skip the date and get laid</option>
         </select>
 
-         <p>Do you like short or tall guys?</p>
+        <p class="man-height">Do you prefer short, tall or REALLY tall men?</p>
         <div class="height">
           <input type="image" img src="assets/img/short.png" name="height" id="short"/>
           <input type="image" img src="assets/img/tall.png" name="height" id="tall"/> 
+          <input type="image" img src="assets/img/giant.png" name="height" id="giant"/>
         </div>
 
-        <div class="tattoos">
-          <p class="tat">Tattoos?</p>
-          <p class="tattoos">
+
+        <div class="tattoo">
+          <p class="yn">Tattoos?</p>
+          <p class="onoff-tat">
             <input type="checkbox" value="1" id="checkboxID">
             <label for="checkboxID"></label>
           </p>
-        </div>
+        </div> 
         
       </fieldset>
 

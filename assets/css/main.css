@@ -183,7 +183,7 @@ select {
 #name {
   height: 35px; }
 
-.onoff, .tattoos {
+.onoff, .onoff-tat {
   zoom: 1;
   position: relative;
   cursor: pointer;
@@ -193,8 +193,7 @@ select {
   border: 1px solid #ee2562;
   margin-bottom: 19px; }
 
-.onoff label,
-.tattoos label {
+.onoff label, .onoff-tat label {
   position: absolute;
   top: -8px;
   width: 100%;
@@ -220,8 +219,8 @@ select {
   color: #ee2562;
   z-index: 1; }
 
-.tattoos label:after {
-  content: 'HELL YAS';
+.onoff-tat label:after {
+  content: 'YES';
   display: block;
   position: absolute;
   top: 0px;
@@ -231,8 +230,7 @@ select {
   color: #ee2562;
   z-index: 1; }
 
-.onoff label:before,
-.tattoos label:before {
+.onoff label:before, .onoff-tat label:before {
   content: '';
   width: 155px;
   height: 39.4px;
@@ -249,7 +247,7 @@ select {
   transition: left 0.3s; }
 
 .onoff input:checked + label,
-.tattoos input:checked + label {
+.onoff-tat input:checked + label {
   background: #fff;
   text-indent: -80px; }
 
@@ -257,12 +255,12 @@ select {
   content: 'Male';
   color: #ee2562; }
 
-.tattoos input:checked + label:after {
-  content: 'HELL NO';
+.onoff-tat input:checked + label:after {
+  content: 'NO';
   color: #ee2562; }
 
 .onoff input:checked + label:before,
-.tattoos input:checked + label:before {
+.onoff-tat input:checked + label:before {
   left: 160px;
   background-color: #ee2562; }
 
@@ -314,16 +312,29 @@ select {
     background-color: #ee2562;
     transition: 1.3s; }
 
-.lookingfor-container, .type-container {
+.lookingfor-container {
   padding-bottom: 14px; }
-  .lookingfor-container .looking, .lookingfor-container .type, .type-container .looking, .type-container .type {
+  .lookingfor-container .looking {
     display: flex; }
-    .lookingfor-container .looking input, .lookingfor-container .type input, .type-container .looking input, .type-container .type input {
-      margin-top: 10px; }
-    .lookingfor-container .looking label, .lookingfor-container .type label, .type-container .looking label, .type-container .type label {
-      margin-right: 30px;
+    .lookingfor-container .looking input {
+      margin-left: 3px; }
+    .lookingfor-container .looking label {
+      margin-left: 5px;
       margin-left: 10px;
-      margin-top: 7px;
+      margin-top: 5px;
       white-space: nowrap; }
+
+.type {
+  padding-bottom: 14px;
+  display: flex; }
+  .type input {
+    margin-left: 5px;
+    margin-top: 3px; }
+  .type label {
+    padding-right: 19px;
+    margin-top: -2px; }
+
+.man-height {
+  white-space: nowrap; }
 
 /*# sourceMappingURL=main.css.map */
