@@ -93,10 +93,10 @@ select{
 	border: 0 none;
 	border-radius: 3px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-	padding: 20px 35px;
 	box-sizing: border-box;
 	width: auto;
-	margin: 0 auto;;
+	margin: 20px auto;
+	padding: 30px 20px;
 	
 	/*stacking fieldsets above each other*/
 	position: relative;
@@ -107,11 +107,6 @@ select{
 		display: block;
 	}
 }
-
-/*Hide all except first fieldset*/
-// #msform fieldset:not(:first-of-type) {
-// 	display: none;
-// }
 
 
 
@@ -219,113 +214,94 @@ select{
 //----------------------------------------------------------------------
 
 #name{
-	height: 35px;
+	height: 33px;
 }
 
 
 //gender and tattoos onoff switch-----------------------------------------
 
-.onoff, .onoff-tat{
-  // display: -moz-inline-stack;
-  // display: inline-block;
-  // *vertical-align: auto;
-  zoom: 1;
-  position: relative;
-  cursor: pointer;
-  width: 100%;
-  height: 40px;
-  line-height: 37px;
-  border: 1px solid #ee2562;
-  margin-bottom: 19px;
-}
+// .onoff{
+//   // display: -moz-inline-stack;
+//   // display: inline-block;
+//   // *vertical-align: auto;
+//   zoom: 1;
+//   position: relative;
+//   cursor: pointer;
+//   width: 100%;
+//   height: 40px;
+//   line-height: 37px;
+//   border: 1px solid #ee2562;
+//   margin-bottom: 19px;
+// }
 
-.onoff label, .onoff-tat label{
-  position: absolute;
-  top: -8px;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  background: #fff;
-  font-weight: bold;
-  color: #FFF;
-  -webkit-transition: background 0.3s, text-indent 0.3s;
-  -moz-transition: background 0.3s, text-indent 0.3s;
-  -o-transition: background 0.3s, text-indent 0.3s;
-  transition: background 0.3s, text-indent 0.3s;
-  text-indent: 70px;
-}
+// .onoff label{
+//   position: absolute;
+//   top: -8px;
+//   width: 100%;
+//   height: 100%;
+//   cursor: pointer;
+//   background: #fff;
+//   font-weight: bold;
+//   color: #FFF;
+//   -webkit-transition: background 0.3s, text-indent 0.3s;
+//   -moz-transition: background 0.3s, text-indent 0.3s;
+//   -o-transition: background 0.3s, text-indent 0.3s;
+//   transition: background 0.3s, text-indent 0.3s;
+//   text-indent: 70px;
+// }
 
-.onoff label:after {
-  content: 'Female';
-  display: block;
-  position: absolute;
-  top: 0px;
-  left: 140px;
-  width: 100%;
-  font-size: 12px;
-  color: #ee2562;
-  z-index: 1;
-}
+// .onoff label:after {
+//   content: 'Female';
+//   display: block;
+//   position: absolute;
+//   top: 0px;
+//   left: 140px;
+//   width: 100%;
+//   font-size: 12px;
+//   color: #ee2562;
+//   z-index: 1;
+// }
 
-.onoff-tat label:after {
-  content: 'YES';
-  display: block;
-  position: absolute;
-  top: 0px;
-  left: 140px;
-  width: 100%;
-  font-size: 12px;
-  color: #ee2562;
-  z-index: 1;	
-}
+// .onoff label:before{
+//   content: '';
+//   width: 155px;
+//   height: 39.4px;
+//   border-radius: 2px;
+//   background: #ee2562;;
+//   position: absolute;
+//   z-index: 2;
+//   top: 0px;
+//   left: 0px;
+//   display: block;
+//   -webkit-transition: left 0.3s;
+//   -moz-transition: left 0.3s;
+//   -o-transition: left 0.3s;
+//   transition: left 0.3s;
+// }
 
-.onoff label:before, .onoff-tat label:before {
-  content: '';
-  width: 155px;
-  height: 39.4px;
-  border-radius: 2px;
-  background: #ee2562;;
-  position: absolute;
-  z-index: 2;
-  top: 0px;
-  left: 0px;
-  display: block;
-  -webkit-transition: left 0.3s;
-  -moz-transition: left 0.3s;
-  -o-transition: left 0.3s;
-  transition: left 0.3s;
-}
+// .onoff input:checked + label{
+//   background: #fff;
+//   text-indent: -80px;
+// }
 
-.onoff input:checked + label,
-.onoff-tat input:checked + label{
-  background: #fff;
-  text-indent: -80px;
-}
+// .onoff input:checked + label:after{
+//   content: 'Male';
+//   color: #ee2562;
+// }
 
-.onoff input:checked + label:after{
-  content: 'Male';
-  color: #ee2562;
-}
-
-.onoff-tat input:checked + label:after{
-  content: 'NO';
-  color: #ee2562;
-}
-
-.onoff input:checked + label:before,
-.onoff-tat input:checked + label:{
-  left: 160px;
-  background-color: #ee2562;
-}
+// .onoff input:checked + label:before{
+//   left: 160px;
+//   background-color: #ee2562;
+// }
 
 
-// age range slider --------------------------------------------------------
+// age range sliders --------------------------------------------------------
 #rangevalue{
 	color: #ee2562;
 	font-size: 13px;
 }
 
-.slidecontainer {
+.slidecontainer{
     width: 100%;
 }
 
@@ -337,6 +313,7 @@ select{
     outline: none;
 }
 
+// pink age slider color
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -346,7 +323,7 @@ select{
     cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
+.slider::-moz-range-thumb  {
     width: 27px;
     height: 30px;
     background: #ee2562;
@@ -361,80 +338,111 @@ select{
 
 	.hair{
 		display: flex;
+		flex-direction: row;
 
 			input{
 				margin-top: 10px;
+
+				&#gray{
+					margin-left: 3px;
+				}
 			}
 
 			label{
-				margin-right: 40px;
-				margin-left: 10px;
+				margin-right: 62px;
 				margin-top: 7px;
 				white-space: nowrap;
 			}
 
 	}	
 }
+		
 
 
+// height --------------------------------------------------------
 
 
+.height{
+	width: 33.33%;
+	display: flex;
+	height: 192px;
 
-// short or tall --------------------------------------------------------
-
-
-// .height{
-// 	width: 33.33%;
-// 	display: flex;
-// 	height: 170px;
-
-// 	input:hover{
-// 		background-color: #ee2562;
-// 		transition: 1.3s;
-// 	}
-// }
+	input:hover{
+		background-color: #ee2562;
+		transition: 1.3s;
+	}
+}
 
 
-// body type selection --------------------------------------------------
+// what are you looking for --------------------------------------------------
 
-// .lookingfor-container{
-// 	padding-bottom: 14px;
+.lookingfor-container{
+	
+	p{
+		padding-bottom: 13px;
+	}
 
-// 	.looking{
-// 		display: flex;
+	.looking{
+		display: inline-flex;
+		flex-direction: row;
 
-// 		input{
-// 			padding-bottom: 35px;
-// 		}
 
-// 		label{
-// 			white-space: nowrap;
-// 			margin-right: 30px;
-// 			padding-bottom: 30px;
-// 			padding-right: 30px;
-// 		}
+		label{
+			margin-right: 62px;
+			white-space: nowrap;
 
-// 	}	
-// }
+		}
+
+		input{
+			margin-top: 10px;
+
+			&#dating{
+				margin-left: -22px;
+			}
+
+		}
+	}		
+}
 
 
 // type of person --------------------------------------------------
 
-// .type{
-// 	padding-bottom: 14px;
-// 	display: flex;
-// 	padding-top: 10px;
+.type-person{
+	padding-bottom: 10px;
+}
 
-// 	label{
+.type-container {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
 
-// 	}
-	
-// }
+	.type{
+		column-count: 4;
+	}
+
+
+}
+
+
+// age of match --------------------------------------------------
+
+p.age{
+	margin: 18px 0 8px 0;
+}
+
+.ageRange-container {
+	column-count: 3;
+
+	.age-row input:hover{
+		background-color: #ee2562;
+		transition: 1.3s;
+	}
+}
 
 // height of guy --------------------------------------------------
 
-.man-height{
-	white-space: nowrap;
-}
+// p.match-height{
+// 	white-space: nowrap;
+// }
 
 

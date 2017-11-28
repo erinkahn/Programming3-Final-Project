@@ -1,5 +1,7 @@
 "use strict";
 
+/* HELP --only works for first slider */
+
 // range slider
 var slider = document.getElementById("myRange");
 var output = document.getElementById("rangevalue");
@@ -8,6 +10,7 @@ output.innerHTML = slider.value;
 slider.oninput = function() {
 	output.innerHTML = slider.value;
 }
+
 
 //---------------------------------------------------------------------
 
@@ -33,10 +36,9 @@ slider.oninput = function() {
 
 //---------------------------------------------------------------------
 
-// create an IIFE
 var straightUpForm = function() {
 
-	console.log("the form IIFE")
+// --------------ALL THE VARIABLES ---------------------------
 
 	// button variables
 	var allButtons = document.querySelectorAll('.action-button')
@@ -47,14 +49,37 @@ var straightUpForm = function() {
 	// 3 fieldset variables
 	var allFieldsets = document.querySelectorAll('fieldset');
 	var currentFieldset = 0;
-// 
+
 	// progress bar variables
 	var progressBar = document.querySelectorAll('#progressbar li');
-	// var currentFieldset = 0;
 
 	// active state variable
 	var activeState = document.querySelector('.active');
-	
+
+	//variables for fieldset 1 you
+	var name = document.querySelector('#name'),
+		gender = document.querySelector('#checkboxID'),
+		usersAge = document.querySelector('#myRange'),
+		hairColor = document.querySelector('.hair'),
+		usersheight = document.querySelector('.height'),
+		bodyType = document.querySelector('.body-type'),
+		lookingFor = document.querySelector('.looking');
+
+	//variables for fieldset 2 match
+	var typePerson = document.querySelector('.type'),
+		matchsAge = document.querySelector('#theirRange'),
+		perfectDate = document.querySelector('.date'),
+		matchsHeight = document.querySelector('.height'),
+		tattoos = document.querySelector('#tatCheckboxID');
+
+	//variables for fieldset 3 account
+	var email = document.querySelector('#email'),
+		username = document.querySelector('#username'),
+		password = document.querySelector('#pw'),
+		confirmPw = document.querySelector('#confirm');
+
+
+//--------fieldset progress looping next previous --------	
 
 
 	// loop through the fieldset array
@@ -86,8 +111,6 @@ var straightUpForm = function() {
 	}
 
 
-
-
 	var goToNextFieldset = function() {
 		currentFieldset++; //go to next fieldset
 		console.log("next clicked, show fieldset", currentFieldset);
@@ -111,9 +134,128 @@ var straightUpForm = function() {
 
 
 
+// -----------form field validation-------------------------
+
+	
+
+	function isNumeric(n) {
+	    return !isNaN(parseFloat(n)) && isFinite(n);
+	}
+
+	function addClass(el, className) {
+	    if (el.classList) {
+	        el.classList.add(className);
+	    }
+	}
+
+	function removeClass(el, className) {
+	    if (el.classList) {
+	        el.classList.remove(className);
+	    }
+	}
+
+
+	var emailCode = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	var usernameCode = /^\w+$/;
+
+
+	function validateForm(form) {
+
+		// name field
+		// if value is not empty and it is a string > its valid
+		if (name.value !== '' && typeof name.value === 'string') {
+			addClass(name, 'valid');
+			removeClass(name, 'invalid');
+		} else if (name.value === '' || typeof name.value !== 'string') {
+			addClass(name, 'invalid');
+			removeClass(name, 'valid');
+		}
+
+		// gender field
+		// userage field
+		// haircolor field
+		// usersheight field
+		// bodytype field
+		// lookingfor field
+
+
+		// typeperson field
+		// matchsage field
+		// perfectdate field
+		// matchsheight field
+		// tattoos field
+
+
+		// email field
+		// email matches emailcode > its valid
+		if (email.value.match(emailCode)) {
+			addClass(email, 'valid');
+			removeClass(email, 'invalid');
+		} else {
+			addClass(email, 'invalid');
+			removeClass(email, 'valid');
+		}
+
+		// username field
+		if(form.username.value == "") {
+		    alert("Error: Username cannot be blank!");
+		    form.username.focus();
+		    addClass(email, 'invalid');
+			removeClass(email, 'valid');
+		} else {
+			addClass(email, 'valid');
+			removeClass(email, 'invalid');
+		}
+
+		if(!usernameCode.test(form.username.value)) {
+		    alert("Error: Username must contain only letters, numbers and underscores!");
+		    form.username.focus();
+		    addClass(email, 'invalid');
+			removeClass(email, 'valid');
+		} else {
+			addClass(email, 'valid');
+			removeClass(email, 'invalid');
+		}
+
+		// password field
+		if(form.password.value != "" && form.password.value == form.confirmPw.value) {
+	      
+	      if(form.password.value.length < 6) {
+	        alert("Error: Password must contain at least six characters!");
+	        form.password.focus();
+	        addClass(email, 'invalid');
+			removeClass(email, 'valid');
+	      }
+		  if(form.password.value == form.username.value) {
+		    alert("Error: Password must be different from Username!");
+		    form.password.focus();
+		    addClass(email, 'invalid');
+			removeClass(email, 'valid');
+		  }
+		  else {
+    		addClass(email, 'valid');
+			removeClass(email, 'invalid');
+		  }
+
+		}
+
+
+		// confirmPw field
+
+		// next btn
+		// previous btn
+		// submit btn
+		
+
+	}
+
+//---------------EVENT LISTENERS -------------------------
+
+
 	// button event listener clicks
 	next.addEventListener('click', function(e) {
 		e.preventDefault();
+		// if validation is correct/no errors and all fields are completed, go to next fieldset
 		goToNextFieldset();
 	})
 
@@ -124,9 +266,12 @@ var straightUpForm = function() {
 
 	submit.addEventListener('click', function(e) {
 		e.preventDefault();
+		// if validation is correct/no errors and all fields are completed, submit form
+		validateForm();
 	})
 
 };
 
+// validateForm();
 straightUpForm();
 
