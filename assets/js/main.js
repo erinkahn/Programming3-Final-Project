@@ -2,7 +2,7 @@
 
 /* HELP --only works for first slider */
 
-// range slider
+// age range slider
 var slider = document.getElementById("myRange");
 var output = document.getElementById("rangevalue");
 output.innerHTML = slider.value;
@@ -10,6 +10,9 @@ output.innerHTML = slider.value;
 slider.oninput = function() {
 	output.innerHTML = slider.value;
 }
+
+//gender toggle switch
+// var genderSwitch = document.querySelector('.switch-input')[0].checked ? 'female' : 'male';
 
 
 //---------------------------------------------------------------------

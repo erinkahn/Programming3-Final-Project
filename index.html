@@ -49,10 +49,11 @@
 
         <div class="gender">
           <p class="mf">Your gender</p>
-          <p class="onoff">
-            <input type="checkbox" value="1" id="checkboxID">
-            <label for="checkboxID"></label>
-          </p>
+          <label class="switch">
+              <input class="switch-input" type="checkbox" />
+              <span class="switch-label" data-on="female" data-off="male"></span>
+              <span class="switch-handle"></span> 
+           </label>
         </div>
 
         <p class="age">Your age (21+ only)</p>
@@ -136,25 +137,19 @@
               <label>hipster<input type="checkbox" name="type"></label>
               <label>sensitive<input type="checkbox" name="type"></label>
               <label>quiet<input type="checkbox" name="type"></label>
-              <label>funny<input type="checkbox" name="type"></label>
-              <label>wealthy<input type="checkbox" name="type"></label>
           </div>
           <div class="type">
-              <label>clingy<input type="checkbox" name="type"> </label>
               <label>smart<input type="checkbox" name="type"></label> 
-              <label>witty<input type="checkbox" name="type"> </label> 
+              <label>funny<input type="checkbox" name="type"> </label> 
               <label>musical<input type="checkbox" name="type"></label> 
               <label>romantic<input type="checkbox" name="type"> </label> 
               <label>patient<input type="checkbox" name="type"> </label> 
-              <label>active<input type="checkbox" name="type"> </label> 
-              <label>unique<input type="checkbox" name="type"></label> 
+              <label>active<input type="checkbox" name="type"> </label>  
           </div>
           <div class="type">
             <label>kind<input type="checkbox" name="type"></label>
-            <label>lazy<input type="checkbox" name="type"></label>
             <label>confident<input type="checkbox" name="type"></label>
             <label>thoughtful<input type="checkbox" name="type"> </label> 
-            <label>arrogant<input type="checkbox" name="type"></label>
             <label>spontaneous<input type="checkbox" name="type"></label> 
             <label>honest<input type="checkbox" name="type"> </label> 
             <label>religious<input type="checkbox" name="type"> </label> 
@@ -197,13 +192,13 @@
           <input type="image" img src="assets/img/giant.png" name="height" id="giant"/>
         </div>
 
-
         <div class="tattoo">
           <p class="yn">Tattoos?</p>
-          <p class="onoff-tat">
-            <input type="checkbox" value="1" id="tatCheckboxID">
-            <label for="tatCheckboxID"></label>
-          </p>
+          <label class="tat-switch">
+              <input class="tat-switch-input" type="checkbox" />
+              <span class="tat-switch-label" data-on="YES" data-off="HELL NO"></span>
+              <span class="tat-switch-handle"></span> 
+           </label>
         </div> 
         
       </fieldset>
