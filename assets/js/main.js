@@ -57,19 +57,20 @@ var straightUpForm = function() {
 		hair = document.querySelector('.hair'),
 		hairSelected = document.querySelectorAll('input[name="hairc"]'),
 		myHeight = document.querySelectorAll('.height'),
-		allHeights = document.querySelectorAll('input[name="height"]'),
+/* ? */	// heightClicked = document.querySelector('input[name="height"]:clicked').value,
+/* ? */	heightClicked = document.querySelector('input[name="height"]'),
 		bodyType = document.querySelector('.body-type'),
-		allBodyTypes = document.querySelectorAll('.body-type option'),
+		bodySelected = document.querySelectorAll('option[name="bod"]'),
 		lookingFor = document.querySelector('.looking'),
-		allLookingFor = document.querySelectorAll('input[name="lookingfor"]');
+		lookingForSelected = document.querySelectorAll('input[name="lookingfor"]');
 
 	//variables for fieldset 2 match
 	var typePerson = document.querySelector('.type'),
 		allTypesPersons = document.querySelectorAll('input[name="type"]'),
 		matchsAge = document.querySelector('.age2'),
 		allMatchsAges = document.querySelectorAll('input[name="match-age"]'),
-		perfectDate = document.querySelector('.date'),
-		allPerfectDates = document.querySelectorAll('.date option'),
+		date = document.querySelector('.date'),
+		dateSelected = document.querySelectorAll('option[name="pdate"]'),
 		matchsHeight = document.querySelector('.matchs-height'),
 		allMatchsHeight = document.querySelectorAll('input[name="matchH"]'),
 		tattoos = document.querySelector('input[name="tat"]');
@@ -185,7 +186,7 @@ var straightUpForm = function() {
 
 		// name field-----------------
 			
-			// if value is not empty and it is a string > its valid
+		
 		if (name.value !== '' && typeof name.value === 'string') {
 			console.log('my name is', name.value);
 			addClass(name, 'valid');
@@ -194,6 +195,7 @@ var straightUpForm = function() {
 
 		} else if (name.value === '' || typeof name.value !== 'string') {
 			alert("Error: Enter your name, damnit!");
+			console.log("you didnt enter your name");
 			name.focus();
 			addClass(name, 'invalid');
 			removeClass(name, 'valid');
@@ -241,31 +243,47 @@ var straightUpForm = function() {
 		var validated = false;
 
 		for (var i = hairSelected.length - 1; i >= 0; i--) {
-			console.dir(hairSelected[i])
+				hairSelected[i]
 
 			if (!hairSelected[i].checked) {
 				addClass(hair, 'invalid');
 				removeClass(hair, 'valid');
-				console.log("hair is not selected");
-				
+
 			} else {
 				validated = true;
-				hair.focus();
-				addClass(hair, 'invalid');
-				removeClass(hair, 'valid');
+				addClass(hair, 'valid');
+				removeClass(hair, 'invalid');
 			}
 		}
 
 		if (!validated) {
-			alert("ERROR: Your hair is NOT selected");
+			hair.focus();
+			alert("ERROR: Your hair color is NOT selected");
+			console.log("Your hair color is NOT selected");
 		} else {
-			console.log("you have hair");
+			console.log("hair color was selected");
 		}
 
 
 
-
 		// users height field-----------------
+
+// help
+// heightSelected = document.querySelectorAll('input[name="height"]:clicked').value,
+
+		if (heightClicked !== "" || heightClicked !== null) {
+			addClass(myHeight, 'valid');
+			removeClass(myHeight, 'invalid');
+			console.log("your height was clicked");
+
+		} else {
+			alert("ERROR: Your height was NOT clicked");
+			myHeight.focus();
+			addClass(myHeight, 'invalid');
+			removeClass(myHeight, 'valid');
+		}
+
+
 
 // /* ? */	for (var i = 0; i < allHeights[i].length; i++){
 			
@@ -284,42 +302,59 @@ var straightUpForm = function() {
 
 
 		// bodytype field-----------------
-		
+			
 
-// IS THIS TOO COMPLEX?? DO I NEED A LOOP????
+		var bodvalidated = false;
 
-// /* ? */	for (var i = allBodyTypes.length - 1; i >= 0; i--) {
-// 			allBodyTypes[i];
+		for (var i = bodySelected.length - 1; i >= 0; i--) {
+			bodySelected[i]
 
-// 			if(allBodyTypes[i].selected == true){
-// 				console.log("i selected a body type");
-//                 addClass(name, 'valid');
-// 				removeClass(name, 'invalid');
-// 			}
+			if(!bodySelected[i].selected){
+                addClass(bodyType, 'invalid');
+				removeClass(bodyType, 'valid');
+			} else {
+				bodvalidated = true;
+				addClass(bodyType, 'valid');
+				removeClass(bodyType, 'invalid');
+			}
+		}
 
-// 		}
+		if (!bodvalidated) {
+			bodyType.focus();
+			alert("Error: You didn't select a body type");
+			console.log("select a body type");
+		} else {
+			console.log("yay. a body type was selected!")
+		}
 
-// 		if (allBodyTypes[i].selected == "") {
-// 			alert("Choose a body type!");
-//             addClass(name, 'invalid');
-// 			removeClass(name, 'valid');
-// 		}
 
-		// if (bodyTypeSelection.value == ""){
-		// 	alert("Error: Make a selection...");
-		// 	bodyType.focus();
-  //           addClass(bodyType, 'invalid');
-		// 	removeClass(bodyType, 'valid');
-
-		// } else {
-		// 	addClass(bodyType, 'valid');
-		// 	removeClass(bodyType, 'invalid');
-		// }
 
 
 		// lookingfor field-----------------
 
+		var validatedLooking = false;
 
+		for (var i = lookingForSelected.length - 1; i >= 0; i--) {
+				lookingForSelected[i]
+
+			if (!lookingForSelected[i].checked) {
+				addClass(lookingFor, 'invalid');
+				removeClass(lookingFor, 'valid');
+
+			} else {
+				validatedLooking = true;
+				addClass(lookingFor, 'valid');
+				removeClass(lookingFor, 'invalid');
+			}
+		}
+
+		if (!validatedLooking) {
+			lookingFor.focus();
+			alert("ERROR: What are you looking for? ");
+			console.log("you did not select what you are looking for");
+		} else {
+			console.log("looking for is selected");
+		}
 
 
 		// typeperson field-----------------
@@ -329,6 +364,30 @@ var straightUpForm = function() {
 
 
 		// perfectdate field-----------------
+
+		var validatedDate = false;
+
+		for (var i = 0; i < dateSelected.length; i++) {
+			dateSelected[i]
+
+			if (!dateSelected[i].selected) {
+				addClass(date, 'invalid');
+				removeClass(date, 'valid');
+
+			} else {
+				validatedDate = true;
+				addClass(date, 'valid');
+				removeClass(date, 'invalid');
+			}
+		}
+
+		if (!validatedDate) {
+			date.focus();
+			alert("Error: omg whats your perfect date");
+			console.log("you didnt choose your perfect date");
+		} else {
+			console.log("you chose a perfect date");
+		}
 
 
 		// matchsheight field-----------------

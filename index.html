@@ -68,7 +68,7 @@
         <div class="hair-container">
           <p>Your hair color</p>
           <div class="hair">
-            <label><input type="radio" name="hairc" value="brown" required>brown</label>
+            <label><input type="radio" name="hairc" value="brown">brown</label>
             <label><input type="radio" name="hairc" value="blonde">blonde</label>
             <label><input type="radio" name="hairc" value="red">red</label>
             <label><input type="radio" name="hairc" value="black">black</label>
@@ -78,38 +78,38 @@
         </div>
         
         <div class="clearfix"></div>
+
+
         <p>Are you short, tall or a giant?</p>
         <div class="height">
-          <input type="image" img src="assets/img/short.png" name="height" id="short"/>
-          <input type="image" img src="assets/img/tall.png" name="height" id="tall"/>
-          <input type="image" img src="assets/img/giant.png" name="height" id="giant"/> 
+          <input type="image" img src="assets/img/short.png" name="height" value="short" clicked="clicked"/>
+          <input type="image" img src="assets/img/tall.png" name="height" value="tall"/>
+          <input type="image" img src="assets/img/giant.png" name="height" value="giant"/> 
         </div>
 
         <p>What's your body type?</p>
-        <select class="body-type">
+        <select class="body-type" required="">
           <option selected="true" disabled="disabled">I'm...</option>
-          <option value="petite">I'm petite</option>
-          <option value="thin">I'm thin</option>
-          <option value="cushion">I've got some cushion</option>
-          <option value="athletic">I'm athletic</option>
-          <option value="muscle">I'm all muscle baby</option>
-          <option value="builder">I'm basically a body builder</option>
-          <option value="lovehandle">I love my love handles</option>
-          <option value="overweight">I want to lose some weight</option>
+          <option value="petite" name="bod">I'm petite</option>
+          <option value="thin" name="bod">I'm thin</option>
+          <option value="cushion" name="bod">I've got some cushion</option>
+          <option value="athletic" name="bod">I'm athletic</option>
+          <option value="muscle" name="bod">I'm all muscle baby</option>
+          <option value="builder" name="bod">I'm basically a body builder</option>
+          <option value="lovehandle" name="bod">I love my love handles</option>
+          <option value="overweight" name="bod">I want to lose some weight</option>
         </select>
         
         <div class="lookingfor-container">
           <p>What are you looking for?</p>
             <div class="looking">
-              <label><input type="radio" name="lookingfor" id="dating" class="date">casual dating</label>  
-              <label><input type="radio" name="lookingfor" id="relationship">a relationship</label> 
-            </div>
-            <div class="looking">
-              <label><input type="radio" name="lookingfor" id="hookup">hookup buddy</label>
-              <label><input type="radio" name="lookingfor" id="night">one night stand</label>
+              <label><input type="radio" name="lookingfor" value="dating" class="date">casual dating</label> <label><input type="radio" name="lookingfor" value="relationship">a relationship</label> 
+              <label><input type="radio" name="lookingfor" value="hookup">hookup buddy</label>
+              <label><input type="radio" name="lookingfor" value="night">one night stand</label>
             </div>
         </div>
               
+
         <div class="clearfix"></div>
 
       </fieldset>
@@ -168,14 +168,14 @@
         </div>
 
         <p>What's your ideal perfect date?</p>
-        <select class="date">
+        <select class="date" required="">
           <option selected="true" disabled="disabled">hm...</option>
-          <option value="movies">see a movie</option>
-          <option value="netflix">netflix and chill</option>
-          <option value="dinner">dinner</option>
-          <option value="bar">bar hop</option>
-          <option value="walk">do something outdoors</option>
-          <option value="laid">skip the date and get laid</option>
+          <option value="movies" name="pdate">see a movie</option>
+          <option value="netflix" name="pdate">netflix and chill</option>
+          <option value="dinner" name="pdate">dinner</option>
+          <option value="bar" name="pdate">bar hop</option>
+          <option value="walk" name="pdate">do something outdoors</option>
+          <option value="laid" name="pdate">skip the date and get laid</option>
         </select>
 
         <p class="match-height">Do you prefer someone short, tall or REALLY tall?</p>
