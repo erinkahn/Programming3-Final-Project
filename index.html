@@ -50,7 +50,7 @@
         <div class="gender">
           <p class="mf">Your gender</p>
           <label class="switch">
-            <input class="switch-input" type="radio" id="gender1" name="gender" value="female" checked="checked">Female
+            <input class="switch-input" type="radio" id="gender1" name="gender" value="female">Female
           </label>
           <label class="switch">
             <input class="switch-input" type="radio" id="gender2" name="gender" value="male">Male
@@ -80,12 +80,22 @@
         <div class="clearfix"></div>
 
 
-        <p>Are you short, tall or a giant?</p>
+
+
+        <p class="heightp">Are you short, tall or a giant?</p>
         <div class="height">
-          <input type="image" img src="assets/img/short.png" name="height" value="short" clicked="clicked"/>
-          <input type="image" img src="assets/img/tall.png" name="height" value="tall"/>
-          <input type="image" img src="assets/img/giant.png" name="height" value="giant"/> 
+            <input type="radio" name="height" id="short" value="short"/>
+            <label class="short label" for="short"></label>
+
+            <input type="radio" name="height" id="tall" value="tall"/>
+            <label class="tall label" for="tall"></label>
+
+            <input type="radio" name="height" id="giant" value="giant"/>
+            <label class="giant label" for="giant"></label>     
         </div>
+
+
+
 
         <p>What's your body type?</p>
         <select class="body-type" required="">
@@ -180,9 +190,9 @@
 
         <p class="match-height">Do you prefer someone short, tall or REALLY tall?</p>
         <div class="matchs-height">
-          <input type="image" img src="assets/img/short.png" name="matchH" id="short"/>
-          <input type="image" img src="assets/img/tall.png" name="matchH" id="tall"/> 
-          <input type="image" img src="assets/img/giant.png" name="matchH" id="giant"/>
+          <input type="radio" img src="assets/img/short.png" name="matchH" id="short"/>
+          <input type="radio" img src="assets/img/tall.png" name="matchH" id="tall"/> 
+          <input type="radio" img src="assets/img/giant.png" name="matchH" id="giant"/>
         </div>
 
         <div class="tattoo">

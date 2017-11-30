@@ -50,19 +50,20 @@ var straightUpForm = function() {
 	//variables for fieldset 1 you
 	var name = document.querySelector('#name'),
 		gender = document.querySelector('.gender'),
-		genderChecked = document.querySelector('input[name="gender"]:checked').value,
+		genderCheckboxes = document.querySelectorAll('input[name="gender"]'),
 		age = document.querySelector('.age'),
 		ageSlider = document.querySelector('#myRange'),
 		ageOutput = document.querySelector('#rangevalue'),
 		hair = document.querySelector('.hair'),
 		hairSelected = document.querySelectorAll('input[name="hairc"]'),
 		myHeight = document.querySelectorAll('.height'),
-/* ? */	// heightClicked = document.querySelector('input[name="height"]:clicked').value,
-/* ? */	heightClicked = document.querySelector('input[name="height"]'),
+/* ? */	heightClicked = document.querySelectorAll('input[name="height"]'),
+		heightLoop = document.querySelector('input[name="height"]:checked'),
 		bodyType = document.querySelector('.body-type'),
 		bodySelected = document.querySelectorAll('option[name="bod"]'),
 		lookingFor = document.querySelector('.looking'),
 		lookingForSelected = document.querySelectorAll('input[name="lookingfor"]');
+
 
 	//variables for fieldset 2 match
 	var typePerson = document.querySelector('.type'),
@@ -205,7 +206,7 @@ var straightUpForm = function() {
 		// gender field-----------------
 
 	
-		if (genderChecked !== "" || genderChecked !== null) {
+		if (genderCheckboxes[0].checked || genderCheckboxes[1].checked) {
 			addClass(gender, 'valid');
 			removeClass(gender, 'invalid');
 			console.log("gender is selected");
@@ -268,37 +269,7 @@ var straightUpForm = function() {
 
 		// users height field-----------------
 
-// help
-// heightSelected = document.querySelectorAll('input[name="height"]:clicked').value,
 
-		if (heightClicked !== "" || heightClicked !== null) {
-			addClass(myHeight, 'valid');
-			removeClass(myHeight, 'invalid');
-			console.log("your height was clicked");
-
-		} else {
-			alert("ERROR: Your height was NOT clicked");
-			myHeight.focus();
-			addClass(myHeight, 'invalid');
-			removeClass(myHeight, 'valid');
-		}
-
-
-
-// /* ? */	for (var i = 0; i < allHeights[i].length; i++){
-			
-// 			if(allHeights[i].checked == true){
-// 				console.log("i selected a height");
-//                 addClass(height, 'valid');
-// 				removeClass(height, 'invalid');
-// 			}
-// 		}
-
-// 		if (allHeights[i].checked == false){
-// 			alert("Select a fucking height!");
-//             addClass(height, 'invalid');
-// 			removeClass(height, 'valid');
-// 		}	
 
 
 		// bodytype field-----------------
@@ -332,28 +303,27 @@ var straightUpForm = function() {
 
 		// lookingfor field-----------------
 
-		var validatedLooking = false;
 
-		for (var i = lookingForSelected.length - 1; i >= 0; i--) {
-				lookingForSelected[i]
+		var lookingForValid = false;
 
-			if (!lookingForSelected[i].checked) {
-				addClass(lookingFor, 'invalid');
-				removeClass(lookingFor, 'valid');
+		for (var i = 0; i < lookingForSelected.length; i++) {
+			var lookingForSelection = lookingForSelected[i];
 
-			} else {
-				validatedLooking = true;
-				addClass(lookingFor, 'valid');
-				removeClass(lookingFor, 'invalid');
+			if (lookingForSelection.checked) {
+				lookingForValid = true;
 			}
 		}
-
-		if (!validatedLooking) {
-			lookingFor.focus();
-			alert("ERROR: What are you looking for? ");
-			console.log("you did not select what you are looking for");
-		} else {
+		
+		if (lookingForValid) {
+			addClass(lookingFor, 'valid');
+			removeClass(lookingFor, 'invalid');
 			console.log("looking for is selected");
+
+		} else {
+			alert("ERROR: You didn't choose what you're looking for");
+			lookingFor.focus();
+			addClass(lookingFor, 'invalid');
+			removeClass(lookingFor, 'valid');
 		}
 
 
@@ -487,7 +457,7 @@ var straightUpForm = function() {
 	}
 
 // call to validate the form
-validateForm();
+// validateForm();
 
 
 

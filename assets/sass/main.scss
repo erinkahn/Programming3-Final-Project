@@ -251,7 +251,7 @@ select{
 
 // outer box outline
 .switch-label, .tat-switch-label {
-  cursor: pointer;
+  	cursor: pointer;
 	position: relative;
 	display: block;
 	height: inherit;
@@ -390,20 +390,53 @@ select{
 
 // height --------------------------------------------------------
 
+.heightp{
+	margin-top: 20px;
+}
+
 .clearfix{
 	clear: both;
 }
 
-.height, .matchs-height{
-	width: 33%;
+// align imgs horizontally
+.height{
 	display: flex;
-	height: 192px;
-
-	input:hover{
-		background-color: #ee2562;
-		transition: 1.3s;
-	}
 }
+
+// position images
+.height input{
+    opacity: 0;
+    margin-right: -90px;
+    margin-left: -220px;
+}
+
+// grab image backgrounds
+.short{background-image:url(../img/short.png);}
+.tall{background-image:url(../img/tall.png);}
+.giant{background-image:url(../img/giant.png);}
+
+// if checked/clicked make border
+.height input:checked + .short,
+.height input:checked + .tall,
+.height input:checked + .giant{
+   border: 2px solid pink;
+   height: 107px;
+}
+
+// size of images
+.short, .tall, .giant{
+    cursor: pointer;
+    background-size: contain;
+    background-repeat:no-repeat;
+    width: 50px;
+    height: 120px;
+
+    // if hovered, change opacity
+    &:hover{
+    	filter: brightness(1.2) opacity(.6);
+    }
+}
+
 
 
 // what are you looking for --------------------------------------------------
