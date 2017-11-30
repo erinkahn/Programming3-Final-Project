@@ -21,7 +21,7 @@
 
 
 <!-- FORM -->    
-    <form id="msform" onsubmit="return validateForm(this);" method="POST">
+    <form id="msform" method="POST">
 
 
 
@@ -35,53 +35,49 @@
 
 
 
-
 <!-- FIELDSET 1 -->
-      <fieldset class="active">
+      <fieldset class="active f1">
         <h2 class="fs-title">TELL US ABOUT YOU</h2>
         <h3 class="fs-subtitle">The more we know the better</h3>
 
         <div class="name">
           <p class="urname">Your name</p>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name"/>
           <label for="name"></label>
         </div>
+
 
         <div class="gender">
           <p class="mf">Your gender</p>
           <label class="switch">
-              <input class="switch-input" type="checkbox" />
-              <span class="switch-label" data-on="female" data-off="male"></span>
-              <span class="switch-handle"></span> 
-           </label>
+            <input class="switch-input" type="radio" id="gender1" name="gender" value="female" checked="checked">Female
+          </label>
+          <label class="switch">
+            <input class="switch-input" type="radio" id="gender2" name="gender" value="male">Male
+          </label>
+            <span class="switch-handle"></span> 
         </div>
 
         <p class="age">Your age (21+ only)</p>
-        <div class="slidecontainer">
-          <input type = "range" min="21" max="50" class="slider" id="myRange" onchange="rangevalue.value=value"/>
-          <output id="rangevalue">50</output>
+        <div class="age">
+          <input type = "range" min="16" max="50" class="slider" id="myRange" onchange="rangevalue.value=value"/>
+          <output id="rangevalue" value=""></output>
         </div>
+
 
         <div class="hair-container">
           <p>Your hair color</p>
           <div class="hair">
-            <input type="radio" name="hairc" id="brown" />
-            <label for="brown">brown</label> 
-            <input type="radio" name="hairc" id="blonde" />
-            <label for="blonde">blonde</label> 
-            <input type="radio" name="hairc" id="red" />
-            <label for="red">red</label> 
-          </div>
-          <div class="hair">
-            <input type="radio" name="hairc" id="black" />
-            <label for="black">black</label>
-            <input type="radio" name="hairc" id="gray" />
-            <label for="gray" class="gray">gray</label>
-            <input type="radio" name="hairc" id="otherbutton" />
-            <label for="other" id="other">other</label>
+            <label><input type="radio" name="hairc" value="brown" required>brown</label>
+            <label><input type="radio" name="hairc" value="blonde">blonde</label>
+            <label><input type="radio" name="hairc" value="red">red</label>
+            <label><input type="radio" name="hairc" value="black">black</label>
+            <label><input type="radio" name="hairc" value="gray">gray</label>
+            <label><input type="radio" name="hairc" value="other">other</label>
           </div>
         </div>
         
+        <div class="clearfix"></div>
         <p>Are you short, tall or a giant?</p>
         <div class="height">
           <input type="image" img src="assets/img/short.png" name="height" id="short"/>
@@ -105,19 +101,17 @@
         <div class="lookingfor-container">
           <p>What are you looking for?</p>
             <div class="looking">
-              <input type="radio" name="lookingfor" id="dating" />
-              <label for="dating" class="date">casual dating</label>  
-              <input type="radio" name="lookingfor" id="relationship" />
-              <label for="relationship">a relationship</label> 
+              <label><input type="radio" name="lookingfor" id="dating" class="date">casual dating</label>  
+              <label><input type="radio" name="lookingfor" id="relationship">a relationship</label> 
             </div>
             <div class="looking">
-              <input type="radio" name="lookingfor" id="hookup" />
-              <label for="hookup">hookup buddy</label> 
-              <input type="radio" name="lookingfor" id="night" />
-              <label for="night">one night stand</label>
+              <label><input type="radio" name="lookingfor" id="hookup">hookup buddy</label>
+              <label><input type="radio" name="lookingfor" id="night">one night stand</label>
             </div>
         </div>
               
+        <div class="clearfix"></div>
+
       </fieldset>
 
 
@@ -131,51 +125,50 @@
         <p class="type-person">What type of person do you look for? Check up to 10.</p>
         <div class="type-container">
           <div class="type">
-              <label>nerdy<input type="checkbox" name="type"></label>
-              <label>shy<input type="checkbox" name="type"></label>
-              <label>athletic<input type="checkbox" name="type"></label>
-              <label>hipster<input type="checkbox" name="type"></label>
-              <label>sensitive<input type="checkbox" name="type"></label>
-              <label>quiet<input type="checkbox" name="type"></label>
+              <label><input type="checkbox" name="type"> nerdy</label>
+              <label><input type="checkbox" name="type"> shy</label>
+              <label><input type="checkbox" name="type"> athletic</label>
+              <label><input type="checkbox" name="type"> hipster</label>
+              <label><input type="checkbox" name="type"> sensitive</label>
+              <label><input type="checkbox" name="type"> quiet</label>
           </div>
           <div class="type">
-              <label>smart<input type="checkbox" name="type"></label> 
-              <label>funny<input type="checkbox" name="type"> </label> 
-              <label>musical<input type="checkbox" name="type"></label> 
-              <label>romantic<input type="checkbox" name="type"> </label> 
-              <label>patient<input type="checkbox" name="type"> </label> 
-              <label>active<input type="checkbox" name="type"> </label>  
+              <label><input type="checkbox" name="type"> smart</label> 
+              <label><input type="checkbox" name="type"> funny </label> 
+              <label><input type="checkbox" name="type"> musical</label> 
+              <label><input type="checkbox" name="type"> romantic </label> 
+              <label><input type="checkbox" name="type"> patient </label> 
+              <label><input type="checkbox" name="type"> active </label>  
           </div>
           <div class="type">
-            <label>kind<input type="checkbox" name="type"></label>
-            <label>confident<input type="checkbox" name="type"></label>
-            <label>thoughtful<input type="checkbox" name="type"> </label> 
-            <label>spontaneous<input type="checkbox" name="type"></label> 
-            <label>honest<input type="checkbox" name="type"> </label> 
-            <label>religious<input type="checkbox" name="type"> </label> 
+              <label><input type="checkbox" name="type"> kind</label>
+              <label><input type="checkbox" name="type"> confident</label>
+              <label><input type="checkbox" name="type"> thoughtful </label> 
+              <label><input type="checkbox" name="type"> spontaneous</label> 
+              <label><input type="checkbox" name="type"> honest </label> 
+              <label><input type="checkbox" name="type"> religious </label> 
           </div>
         </div>
 
-
-        <p class="age">How old do you want this person to be?</p>
-        <div class="ageRange-container">
+        <div class="clearfix"></div>
+        <p>How old do you want this person to be?</p>
+        <div class="age2">
           <div class="age-row">
-            <input type="button" value="21-25">
-            <input type="button" value="36-40">
+            <input type="button" name="match-age" value="21-25">
+            <input type="button" name="match-age" value="36-40">
           </div>
           <div class="age-row">
-            <input type="button" value="26-29">
-            <input type="button" value="41-45">
+            <input type="button" name="match-age" value="26-29">
+            <input type="button" name="match-age" value="41-45">
           </div>
           <div class="age-row">
-           
-            <input type="button" value="30-35">
-            <input type="button" value="46-50">
+            <input type="button" name="match-age" value="30-35">
+            <input type="button" name="match-age" value="46-50">
           </div>
         </div>
 
         <p>What's your ideal perfect date?</p>
-        <select class=".date">
+        <select class="date">
           <option selected="true" disabled="disabled">hm...</option>
           <option value="movies">see a movie</option>
           <option value="netflix">netflix and chill</option>
@@ -186,18 +179,18 @@
         </select>
 
         <p class="match-height">Do you prefer someone short, tall or REALLY tall?</p>
-        <div class="height">
-          <input type="image" img src="assets/img/short.png" name="height" id="short"/>
-          <input type="image" img src="assets/img/tall.png" name="height" id="tall"/> 
-          <input type="image" img src="assets/img/giant.png" name="height" id="giant"/>
+        <div class="matchs-height">
+          <input type="image" img src="assets/img/short.png" name="matchH" id="short"/>
+          <input type="image" img src="assets/img/tall.png" name="matchH" id="tall"/> 
+          <input type="image" img src="assets/img/giant.png" name="matchH" id="giant"/>
         </div>
 
         <div class="tattoo">
           <p class="yn">Tattoos?</p>
           <label class="tat-switch">
-              <input class="tat-switch-input" type="checkbox" />
+              <input class="tat-switch-input" type="checkbox" id="tat" name="tat" />
               <span class="tat-switch-label" data-on="YES" data-off="HELL NO"></span>
-              <span class="tat-switch-handle"></span> 
+              <span class="tat-switch-handle"></span>
            </label>
         </div> 
         

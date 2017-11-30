@@ -34,6 +34,7 @@ label{
 	color: gray;
 }
 
+
 // style radio buttons before clicked
 input[type='radio']:after {
 	width: 15px;
@@ -109,9 +110,9 @@ select{
 }
 
 
-
 /*inputs*/
-#msform input, #msform textarea {
+#msform input, 
+#msform textarea {
 	padding: 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
@@ -121,6 +122,10 @@ select{
 	font-family: montserrat;
 	color: #ee2562;
 	font-size: 13px;
+}
+
+#msform input[type="checkbox"] {
+	width: auto;
 }
 
 /* previous, next, submit buttons*/
@@ -220,6 +225,7 @@ select{
 
 //gender and tattoo switch----------------------------------------------------------
 
+
 .switch, .tat-switch {
 	position: relative;
 	display: block;
@@ -231,19 +237,21 @@ select{
 	border-radius: 2px;
 	cursor: pointer;
 	box-sizing: content-box;
+  	// float: left;
 }
 
 // hidden checkbox
 .switch-input, .tat-switch-input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
+	//position: absolute;
+	//top: 0;
+	//left: 0;
+	//opacity: 0;
 	box-sizing:content-box;
 }
 
 // outer box outline
 .switch-label, .tat-switch-label {
+  cursor: pointer;
 	position: relative;
 	display: block;
 	height: inherit;
@@ -252,6 +260,8 @@ select{
 	border-radius: inherit;
 	box-shadow: inset 1px 0 1px 3px rgba(0, 0, 0, 0.07), inset 1px 1px 2px rgba(0, 0, 0, 0.07);
 	box-sizing: content-box;
+  float: left;
+  width: 50%;
 }
 
 // male and female text positions
@@ -265,7 +275,6 @@ select{
 
 // male text
 .switch-label:before, .tat-switch-label:before {
-	content: attr(data-off); //male
 	right: 11px;
 	color: gray;
 	letter-spacing: 0.05em;
@@ -273,7 +282,6 @@ select{
 
 // female text
 .switch-label:after, .tat-switch-label:after {
-	content: attr(data-on); //female
 	left: 11px;
 	color: gray;
 	letter-spacing: 0.05em;
@@ -334,7 +342,7 @@ select{
 	font-size: 13px;
 }
 
-.slidecontainer{
+.age{
     width: 100%;
 }
 
@@ -364,38 +372,29 @@ select{
 }
 
 
-// hair color --------------------------------------------------------
+// hair color ---------------------------------------------------
 
-.hair-container{
-	padding-bottom: 5px;
+.hair-container {
 
 	.hair{
-		display: flex;
-		flex-direction: row;
-
-			input{
-				margin-top: 10px;
-
-				&#gray{
-					margin-left: 3px;
-				}
-			}
-
-			label{
-				margin-right: 62px;
-				margin-top: 7px;
-				white-space: nowrap;
-			}
-
-	}	
-}
 		
+		label {
+			display: block;
+			width: 25%;
+			float: left;
+			margin-left: 30px;
+		}
+	}
 
+}
 
 // height --------------------------------------------------------
 
+.clearfix{
+	clear: both;
+}
 
-.height{
+.height, .matchs-height{
 	width: 33%;
 	display: flex;
 	height: 192px;
@@ -409,61 +408,73 @@ select{
 
 // what are you looking for --------------------------------------------------
 
-.lookingfor-container{
+// .lookingfor-container{
 	
-	p{
-		padding-bottom: 13px;
+// 	p{
+// 		padding-bottom: 13px;
+// 	}
+
+// 	.looking{
+// 		display: inline-flex;
+// 		flex-direction: row;
+
+
+// 		label{
+// 			margin-right: 62px;
+// 			white-space: nowrap;
+
+// 		}
+
+// 		input{
+// 			margin-top: 10px;
+
+// 			&#dating{
+// 				margin-left: -22px;
+// 			}
+
+// 		}
+// 	}		
+// }
+
+.hair-container {
+
+	.hair{
+		
+		input {
+			display: block;
+			width: 25%;
+			float: left;
+		}
+
 	}
 
-	.looking{
-		display: inline-flex;
-		flex-direction: row;
-
-
-		label{
-			margin-right: 62px;
-			white-space: nowrap;
-
-		}
-
-		input{
-			margin-top: 10px;
-
-			&#dating{
-				margin-left: -22px;
-			}
-
-		}
-	}		
 }
-
 
 // type of person --------------------------------------------------
 
 .type-person{
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 }
 
 .type-container {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
 
 	.type{
-		column-count: 3;
+		
+		label {
+			display: block;
+			width: 33.33%;
+			float: left;
+		}
 	}
-
 
 }
 
 
 // age of match --------------------------------------------------
 
-p.age{
-	margin: 18px 0 8px 0;
-}
 
-.ageRange-container {
+
+.age2 {
 	column-count: 3;
 
 	.age-row input:hover{

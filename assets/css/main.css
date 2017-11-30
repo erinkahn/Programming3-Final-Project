@@ -89,7 +89,8 @@ select {
     display: block; }
 
 /*inputs*/
-#msform input, #msform textarea {
+#msform input,
+#msform textarea {
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -99,6 +100,9 @@ select {
   font-family: montserrat;
   color: #ee2562;
   font-size: 13px; }
+
+#msform input[type="checkbox"] {
+  width: auto; }
 
 /* previous, next, submit buttons*/
 #msform .action-button {
@@ -195,13 +199,10 @@ select {
   box-sizing: content-box; }
 
 .switch-input, .tat-switch-input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
   box-sizing: content-box; }
 
 .switch-label, .tat-switch-label {
+  cursor: pointer;
   position: relative;
   display: block;
   height: inherit;
@@ -209,7 +210,9 @@ select {
   background: #ecefff;
   border-radius: inherit;
   box-shadow: inset 1px 0 1px 3px rgba(0, 0, 0, 0.07), inset 1px 1px 2px rgba(0, 0, 0, 0.07);
-  box-sizing: content-box; }
+  box-sizing: content-box;
+  float: left;
+  width: 50%; }
 
 .switch-label:before, .switch-label:after,
 .tat-switch-label:before, .tat-switch-label:after {
@@ -219,13 +222,11 @@ select {
   line-height: 1; }
 
 .switch-label:before, .tat-switch-label:before {
-  content: attr(data-off);
   right: 11px;
   color: gray;
   letter-spacing: 0.05em; }
 
 .switch-label:after, .tat-switch-label:after {
-  content: attr(data-on);
   left: 11px;
   color: gray;
   letter-spacing: 0.05em;
@@ -269,7 +270,7 @@ select {
   color: #ee2562;
   font-size: 13px; }
 
-.slidecontainer {
+.age {
   width: 100%; }
 
 .slider {
@@ -293,58 +294,39 @@ select {
   background: #ee2562;
   cursor: pointer; }
 
-.hair-container {
-  padding-bottom: 5px; }
-  .hair-container .hair {
-    display: flex;
-    flex-direction: row; }
-    .hair-container .hair input {
-      margin-top: 10px; }
-      .hair-container .hair input#gray {
-        margin-left: 3px; }
-    .hair-container .hair label {
-      margin-right: 62px;
-      margin-top: 7px;
-      white-space: nowrap; }
+.hair-container .hair label {
+  display: block;
+  width: 25%;
+  float: left;
+  margin-left: 30px; }
 
-.height {
+.clearfix {
+  clear: both; }
+
+.height, .matchs-height {
   width: 33%;
   display: flex;
   height: 192px; }
-  .height input:hover {
+  .height input:hover, .matchs-height input:hover {
     background-color: #ee2562;
     transition: 1.3s; }
 
-.lookingfor-container p {
-  padding-bottom: 13px; }
-
-.lookingfor-container .looking {
-  display: inline-flex;
-  flex-direction: row; }
-  .lookingfor-container .looking label {
-    margin-right: 62px;
-    white-space: nowrap; }
-  .lookingfor-container .looking input {
-    margin-top: 10px; }
-    .lookingfor-container .looking input#dating {
-      margin-left: -22px; }
+.hair-container .hair input {
+  display: block;
+  width: 25%;
+  float: left; }
 
 .type-person {
-  padding-bottom: 10px; }
+  padding-bottom: 5px; }
 
-.type-container {
-  display: flex;
-  flex-direction: column;
-  text-align: center; }
-  .type-container .type {
-    column-count: 3; }
+.type-container .type label {
+  display: block;
+  width: 33.33%;
+  float: left; }
 
-p.age {
-  margin: 18px 0 8px 0; }
-
-.ageRange-container {
+.age2 {
   column-count: 3; }
-  .ageRange-container .age-row input:hover {
+  .age2 .age-row input:hover {
     background-color: #ee2562;
     transition: 1.3s; }
 
