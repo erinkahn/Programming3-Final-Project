@@ -56,9 +56,8 @@ var straightUpForm = function() {
 		ageOutput = document.querySelector('#rangevalue'),
 		hair = document.querySelector('.hair'),
 		hairSelected = document.querySelectorAll('input[name="hairc"]'),
-		myHeight = document.querySelectorAll('.height'),
-/* ? */	heightClicked = document.querySelectorAll('input[name="height"]'),
-		heightLoop = document.querySelector('input[name="height"]:checked'),
+		height = document.querySelectorAll('.height'),
+  		heightClicked = document.querySelectorAll('input[name="height"]'),
 		bodyType = document.querySelector('.body-type'),
 		bodySelected = document.querySelectorAll('option[name="bod"]'),
 		lookingFor = document.querySelector('.looking'),
@@ -72,8 +71,8 @@ var straightUpForm = function() {
 		allMatchsAges = document.querySelectorAll('input[name="match-age"]'),
 		date = document.querySelector('.date'),
 		dateSelected = document.querySelectorAll('option[name="pdate"]'),
-		matchsHeight = document.querySelector('.matchs-height'),
-		allMatchsHeight = document.querySelectorAll('input[name="matchH"]'),
+		matchHeight = document.querySelector('.matchs-height'),
+		matchHeightClicked = document.querySelectorAll('input[name="matchH"]'),
 		tattoos = document.querySelector('input[name="tat"]');
 
 	//variables for fieldset 3 account
@@ -241,7 +240,7 @@ var straightUpForm = function() {
 
 		// haircolor field-----------------
 
-		var validated = false;
+		var hairValid = false;
 
 		for (var i = hairSelected.length - 1; i >= 0; i--) {
 				hairSelected[i]
@@ -251,13 +250,13 @@ var straightUpForm = function() {
 				removeClass(hair, 'valid');
 
 			} else {
-				validated = true;
+				hairValid = true;
 				addClass(hair, 'valid');
 				removeClass(hair, 'invalid');
 			}
 		}
 
-		if (!validated) {
+		if (!hairValid) {
 			hair.focus();
 			alert("ERROR: Your hair color is NOT selected");
 			console.log("Your hair color is NOT selected");
@@ -269,6 +268,29 @@ var straightUpForm = function() {
 
 		// users height field-----------------
 
+
+		var heightValid = false;
+
+		for (var i = heightClicked.length - 1; i >= 0; i--) {
+				heightClicked[i]
+
+			if (!heightClicked[i].checked) {
+				addClass(height, 'invalid');
+				removeClass(height, 'valid');
+
+			} else {
+				heightValid = true;
+				addClass(height, 'valid');
+				removeClass(height, 'invalid');
+			}
+		}
+
+		if (!heightValid) {
+			alert("ERROR: You didn't click your height");
+			console.log("Your height is NOT selected");
+		} else {
+			console.log("you chose your height");
+		}
 
 
 
@@ -362,21 +384,30 @@ var straightUpForm = function() {
 
 		// matchsheight field-----------------
 
-		// for (var i = 0; i < allMatchsHeight[i].length; i++){
-			
-		// 	if(allMatchsHeight[i].checked == true){
-		// 		console.log("i selected a height");
-  //               addClass(matchsHeight, 'valid');
-		// 		removeClass(matchsHeight, 'invalid');
-		// 	}
-		// }
 
-		// if (allMatchsHeight[i].checked == false){
-		// 	alert("Select a fucking height!");
-		// 	matchsHeight.focus();
-  //           addClass(matchsHeight, 'invalid');
-		// 	removeClass(matchsHeight, 'valid');
-		// }
+		var matchHeightValid = false;
+
+		for (var i = matchHeightClicked.length - 1; i >= 0; i--) {
+				matchHeightClicked[i]
+
+			if (!matchHeightClicked[i].checked) {
+				addClass(matchHeight, 'invalid');
+				removeClass(matchHeight, 'valid');
+
+			} else {
+				matchHeightValid = true;
+				addClass(matchHeight, 'valid');
+				removeClass(matchHeight, 'invalid');
+			}
+		}
+
+		if (!matchHeightValid) {
+			alert("ERROR: What height do you want them to be?");
+			console.log("Your matchs height is NOT selected");
+		} else {
+			console.log("you chose your matchs height");
+		}
+
 
 		// tattoos field-----------------
 

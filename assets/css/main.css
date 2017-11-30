@@ -300,16 +300,16 @@ select {
   float: left;
   margin-left: 30px; }
 
-.heightp {
+.heightp, .match-heightp {
   margin-top: 20px; }
 
 .clearfix {
   clear: both; }
 
-.height {
+.height, .matchs-height {
   display: flex; }
 
-.height input {
+.height input, .matchs-height input {
   opacity: 0;
   margin-right: -90px;
   margin-left: -220px; }
@@ -323,19 +323,29 @@ select {
 .giant {
   background-image: url(../img/giant.png); }
 
-.height input:checked + .short,
-.height input:checked + .tall,
-.height input:checked + .giant {
+.shortm {
+  background-image: url(../img/short.png); }
+
+.tallm {
+  background-image: url(../img/tall.png); }
+
+.giantm {
+  background-image: url(../img/giant.png); }
+
+.height input:checked + label,
+.matchs-height input:checked + label {
   border: 2px solid pink;
   height: 107px; }
 
-.short, .tall, .giant {
+.short, .tall, .giant,
+.shortm, .tallm, .giantm {
   cursor: pointer;
   background-size: contain;
   background-repeat: no-repeat;
   width: 50px;
   height: 120px; }
-  .short:hover, .tall:hover, .giant:hover {
+  .short:hover, .tall:hover, .giant:hover,
+  .shortm:hover, .tallm:hover, .giantm:hover {
     filter: brightness(1.2) opacity(0.6); }
 
 .hair-container .hair input {

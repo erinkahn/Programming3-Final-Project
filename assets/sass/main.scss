@@ -390,7 +390,7 @@ select{
 
 // height --------------------------------------------------------
 
-.heightp{
+.heightp, .match-heightp{
 	margin-top: 20px;
 }
 
@@ -399,12 +399,12 @@ select{
 }
 
 // align imgs horizontally
-.height{
+.height, .matchs-height{
 	display: flex;
 }
 
 // position images
-.height input{
+.height input, .matchs-height input{
     opacity: 0;
     margin-right: -90px;
     margin-left: -220px;
@@ -414,20 +414,23 @@ select{
 .short{background-image:url(../img/short.png);}
 .tall{background-image:url(../img/tall.png);}
 .giant{background-image:url(../img/giant.png);}
+.shortm{background-image:url(../img/short.png);}
+.tallm{background-image:url(../img/tall.png);}
+.giantm{background-image:url(../img/giant.png);}
 
 // if checked/clicked make border
-.height input:checked + .short,
-.height input:checked + .tall,
-.height input:checked + .giant{
+.height input:checked + label,
+.matchs-height input:checked + label{
    border: 2px solid pink;
    height: 107px;
 }
 
 // size of images
-.short, .tall, .giant{
+.short, .tall, .giant,
+.shortm, .tallm, .giantm{
     cursor: pointer;
     background-size: contain;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     width: 50px;
     height: 120px;
 
