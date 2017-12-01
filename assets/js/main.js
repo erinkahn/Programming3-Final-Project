@@ -78,13 +78,9 @@ var straightUpForm = function() {
 
 	//variables for fieldset 3 account
 	var email = document.querySelector('#email'),
-		username = document.querySelector('#username'),
+		emailCode = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
 		password = document.querySelector('#pw'),
 		confirmPw = document.querySelector('#confirm');
-
-	// validation codes
-	var emailCode = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-	var usernameCode = /^\w+$/;
 
 
 
@@ -523,82 +519,71 @@ var straightUpForm = function() {
 
 		// email field-----------------
 
-			// email matches emailcode > its valid
-		// if (email.value.match(emailCode)) {
-		// 	addClass(email, 'valid');
-		// 	removeClass(email, 'invalid');
 
-		// } else {
-		// 	alert("Error: Enter a valid email.");
-		// 	email.focus();
-		// 	addClass(email, 'invalid');
-		// 	removeClass(email, 'valid');
-		// }
+		// if email matches emailcode > its valid
+		if (email.value.match(emailCode)) {
+			addClass(email, 'valid');
+			removeClass(email, 'invalid');
+			console.log('you entered a CORRECT email')
 
-
-
-
-
-		// username field-----------------
-
-		// if(username.value == "") {
-		//     alert("Error: Username cannot be blank!");
-		//     username.focus();
-		//     addClass(username, 'invalid');
-		// 	removeClass(username, 'valid');
-
-		// } else {
-		// 	console.log('username is written');
-		// 	addClass(username, 'valid');
-		// 	removeClass(username, 'invalid');
-		// }
-
-		// if(!usernameCode.test(username.value)) {
-		//     alert("Error: Username must contain only letters, numbers and underscores!");
-		//     username.focus();
-		//     addClass(username, 'invalid');
-		// 	removeClass(username, 'valid');
-
-		// } else {
-		// 	addClass(email, 'valid');
-		// 	removeClass(email, 'invalid');
-		// }
+		} else {
+			alert("Error: Enter a valid email address.");
+			console.log('you entered the wrong email address')
+			email.focus();
+			addClass(email, 'invalid');
+			removeClass(email, 'valid');
+		}
 
 
 
 
 
-		// password field-----------------
 
-		// if(password.value != "" && password.value == confirmPw.value) {
-	      
-	 //      if(password.value.length < 6) {
-	 //        alert("Error: Password must contain at least six characters!");
-	 //        password.focus();
-	 //        addClass(email, 'invalid');
-		// 	removeClass(email, 'valid');
+		// password -----------------
 
-	 //      } else if (password.value == username.value) {
-		//     alert("Error: Password must be different from Username!");
-		//     password.focus();
-		//     addClass(email, 'invalid');
-		// 	removeClass(email, 'valid');
 
-		//   } else {
-  //   		addClass(email, 'valid');
-		// 	removeClass(email, 'invalid');
-		//   }
-
-		// }
+		
+		if (password.value != "" && password.value.length > 6) {
+			addClass(password, 'valid');
+			removeClass(password, 'invalid');
+			console.log('yay you followed instructions');
+	        
+	    } else {
+			alert("Error: Password must contain at least six characters!");
+	        console.log('you didnt enter a correct password');
+	        password.focus();
+	        addClass(password, 'invalid');
+			removeClass(password, 'valid');
+		}
 
 
 
 
+		// confirm password -----------
 
-		// confirmPw field-----------------
+		if (confirmPw.value != "" && confirmPw.value == password.value) {
+			addClass(confirmPw, 'valid');
+			removeClass(confirmPw, 'invalid');
+			console.log('yay confirmation pw matches!!!');
+		} else {
+			alert("Error: your confirmation password isnt correct!");
+	        console.log('confirmation password is wrong');
+	        confirmPw.focus();
+	        addClass(confirmPw, 'invalid');
+			removeClass(confirmPw, 'valid');
+		}
+
+
+
 
 		// next btn-----------------
+		
+
+
 		// previous btn-----------------
+		
+
+
 		// submit btn-----------------
 
 
