@@ -226,7 +226,7 @@ select{
 //gender and tattoo switch----------------------------------------------------------
 
 
-.switch, .tat-switch {
+.gender-switch, .tat-switch {
 	position: relative;
 	display: block;
 	vertical-align: top;
@@ -237,20 +237,19 @@ select{
 	border-radius: 2px;
 	cursor: pointer;
 	box-sizing: content-box;
-  	// float: left;
 }
 
 // hidden checkbox
-.switch-input, .tat-switch-input {
-	//position: absolute;
-	//top: 0;
-	//left: 0;
-	//opacity: 0;
-	box-sizing:content-box;
+.gender-switch-input, .tat-switch-input {
+	position: absolute;
+	top: 7px; 
+	left: 7px;
+	opacity: 1;
+	box-sizing: content-box;
 }
 
 // outer box outline
-.switch-label, .tat-switch-label {
+.gender-switch-label, .tat-switch-label {
   	cursor: pointer;
 	position: relative;
 	display: block;
@@ -260,12 +259,11 @@ select{
 	border-radius: inherit;
 	box-shadow: inset 1px 0 1px 3px rgba(0, 0, 0, 0.07), inset 1px 1px 2px rgba(0, 0, 0, 0.07);
 	box-sizing: content-box;
-  float: left;
-  width: 50%;
+    width: 100%;
 }
 
 // male and female text positions
-.switch-label:before, .switch-label:after,
+.gender-switch-label:before, .gender-switch-label:after,
 .tat-switch-label:before, .tat-switch-label:after {
 	position: absolute;
 	top: 52%;
@@ -274,62 +272,70 @@ select{
 }
 
 // male text
-.switch-label:before, .tat-switch-label:before {
+.gender-switch-label:before, .tat-switch-label:before {
 	right: 11px;
 	color: gray;
 	letter-spacing: 0.05em;
 }
 
 // female text
-.switch-label:after, .tat-switch-label:after {
+.gender-switch-label:after, .tat-switch-label:after {
 	left: 11px;
 	color: gray;
 	letter-spacing: 0.05em;
 	opacity: 0;
 }
 
-// hide female before switch
-.switch-input:checked ~ .switch-label:before,
+// hide text before switch
+.gender-switch-input:checked ~ .gender-switch-label:before,
 .tat-switch-input:checked ~ .tat-switch-label:before {
 	opacity: 0;
 }
 
-// show female after switch
-.switch-input:checked ~ .switch-label:after,
+// if its already checked, it shows yes (default)
 .tat-switch-input:checked ~ .tat-switch-label:after {
 	opacity: 1;
+	content: "yes";
+	
+	float: right;
+}
+
+// if its already checked, it shows female (default)
+.gender-switch-input:checked ~ .gender-switch-label:after {
+	opacity: 1;
+	content: "female";
+	float: right;
+}
+
+// if you click it, it shows no (becomes unchecked)
+.tat-switch-input ~ .tat-switch-label:before{
+	content: "no";
+}
+
+// if you click it, it shows male (becomes unchecked)
+.gender-switch-input ~ .gender-switch-label:before{
+	content: "male";
 }
 
 // moving box switch
-.switch-handle, .tat-switch-handle {
+.gender-switch-handle, .tat-switch-handle {
 	position: absolute;
 	top: 3px;
 	left: 3px;
 	width: 50%;
 	height: 35px;
 	background: #ee2562;
-	box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-// idk what this does ??????
-.switch-handle:before, .tat-switch-handle:before {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 40px;
-	height: 12px;
-	box-shadow: inset 1px 2px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 // pink switch move right and left
-.switch-input:checked ~ .switch-handle,
+.gender-switch-input:checked ~ .gender-switch-handle,
 .tat-switch-input:checked ~ .tat-switch-handle {
 	left: 49%;
 }
  
 // transition
-.switch-label, .switch-handle,
+.gender-switch-label, .gender-switch-handle,
 .tat-switch-label, .tat-switch-handle {
 	transition: All 0.3s ease;
 }
@@ -508,16 +514,59 @@ select{
 
 // age of match --------------------------------------------------
 
+// match age p
+.matchage-p{
+	margin-top: 20px;
+}
 
 
 .age2 {
-	column-count: 3;
+	width: 100%;
+	flex-order: 1;
+	display: flex;
+	padding-bottom: 30px;
 
-	.age-row input:hover{
-		background-color: #ee2562;
-		transition: 1.3s;
+	div {
+		padding: 10px;
+	}
+}
+
+// main div 
+.age-row {
+	width: 33.33%;
+
+	// hide radio buttons
+	input{
+		opacity: 0;
+	}
+
+	// text/borders/hovers
+	label{
+		border: 1px solid gray;
+		border-radius: 3px; 
+		padding: 10px;
+		cursor: pointer;
+		margin: 10px;
+
+		&:hover {
+			color: #ee2562;
+			transition: 1s;
+			border: 2px solid #ee2562;
+			padding: 9px 14px;
+		}
 	}
 }
 
 
+// if checked/clicked make border
+.age2 input:checked + label{
+   border: 2px solid #ee2562;
+   color: #ee2562;
+}
+
+// date --------------------------------------------------
+
+.datep{
+	margin-top: 18px;
+}
 

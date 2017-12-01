@@ -32,7 +32,7 @@ var straightUpForm = function() {
 	var theForm = document.querySelector("#msform");
 
 	// button variables
-	var allButtons = document.querySelectorAll('.action-button')
+	var allButtons = document.querySelectorAll('.action-button');
 	var next = document.querySelector('.next.action-button');
 	var previous = document.querySelector('.previous.action-button');
 	var submit = document.querySelector('.submit.action-button');
@@ -50,7 +50,7 @@ var straightUpForm = function() {
 	//variables for fieldset 1 you
 	var name = document.querySelector('#name'),
 		gender = document.querySelector('.gender'),
-		genderCheckboxes = document.querySelectorAll('input[name="gender"]'),
+		genderChecked = document.querySelector('input[name="gender"]:checked'),
 		age = document.querySelector('.age'),
 		ageSlider = document.querySelector('#myRange'),
 		ageOutput = document.querySelector('#rangevalue'),
@@ -66,14 +66,15 @@ var straightUpForm = function() {
 
 	//variables for fieldset 2 match
 	var typePerson = document.querySelector('.type'),
-		allTypesPersons = document.querySelectorAll('input[name="type"]'),
+		typeChecked = document.querySelectorAll('input[name="type"]'),
 		matchsAge = document.querySelector('.age2'),
-		allMatchsAges = document.querySelectorAll('input[name="match-age"]'),
+		matchsAgeRangeClicked = document.querySelectorAll('input[name="match-age"]'),
 		date = document.querySelector('.date'),
 		dateSelected = document.querySelectorAll('option[name="pdate"]'),
 		matchHeight = document.querySelector('.matchs-height'),
 		matchHeightClicked = document.querySelectorAll('input[name="matchH"]'),
-		tattoos = document.querySelector('input[name="tat"]');
+		tattoo = document.querySelector('.tattoo'),
+		tattooChecked = document.querySelector('input[name="tat"]:checked');
 
 	//variables for fieldset 3 account
 	var email = document.querySelector('#email'),
@@ -93,7 +94,7 @@ var straightUpForm = function() {
 
 	ageSlider.oninput = function() {
 		ageOutput.innerHTML = ageSlider.value;
-	}
+	};
 
 
 
@@ -118,7 +119,7 @@ var straightUpForm = function() {
 		}
 
 		// loop through the three fields sets
-		for (var i = 0; i < allFieldsets.length; i++) {
+		for (i = 0; i < allFieldsets.length; i++) {
 			allFieldsets[i];
 			console.log(allFieldsets[i]);
 
@@ -128,7 +129,7 @@ var straightUpForm = function() {
 				allFieldsets[i].classList.remove('active');
 			} 
 		}
-	}
+	};
 
 	var goToNextFieldset = function() {
 		currentFieldset++; //go to next fieldset
@@ -140,7 +141,7 @@ var straightUpForm = function() {
 		} else {
 			alert('Your account has been created!'); 
 		}
-	}
+	};
 
 	var goToPreviousFieldset = function(){
 		currentFieldset--; //go to previous fieldset
@@ -149,7 +150,7 @@ var straightUpForm = function() {
 		if (currentFieldset >= 0) { // sanity check
 			loopThroughFieldsets();
 		}
-	}
+	};
 
 
 
@@ -202,20 +203,26 @@ var straightUpForm = function() {
 		}
 
 
+
+
+
 		// gender field-----------------
 
-	
-		if (genderCheckboxes[0].checked || genderCheckboxes[1].checked) {
-			addClass(gender, 'valid');
-			removeClass(gender, 'invalid');
-			console.log("gender is selected");
+		// if the checkbox is NOT checked, its male
+		// if the checkbox is checked, its female
+			if (!genderChecked.checked || genderChecked == null) {
+				addClass(gender, 'female');
+				removeClass(gender, 'male');
+				console.log("I'm a male");
+				
+			} else {
+				addClass(gender, 'male');
+				removeClass(gender, 'female');
+				console.log("I am a female!");
+			}
 
-		} else {
-			alert("ERROR: Your gender is NOT selected");
-			gender.focus();
-			addClass(gender, 'invalid');
-			removeClass(gender, 'valid');
-		}
+
+
 
 
 
@@ -238,12 +245,15 @@ var straightUpForm = function() {
 		
 
 
+
+
+
 		// haircolor field-----------------
 
 		var hairValid = false;
 
 		for (var i = hairSelected.length - 1; i >= 0; i--) {
-				hairSelected[i]
+				hairSelected[i];
 
 			if (!hairSelected[i].checked) {
 				addClass(hair, 'invalid');
@@ -266,13 +276,16 @@ var straightUpForm = function() {
 
 
 
+
+
+
 		// users height field-----------------
 
 
 		var heightValid = false;
 
 		for (var i = heightClicked.length - 1; i >= 0; i--) {
-				heightClicked[i]
+				heightClicked[i];
 
 			if (!heightClicked[i].checked) {
 				addClass(height, 'invalid');
@@ -294,13 +307,16 @@ var straightUpForm = function() {
 
 
 
+
+
+
 		// bodytype field-----------------
 			
 
 		var bodvalidated = false;
 
 		for (var i = bodySelected.length - 1; i >= 0; i--) {
-			bodySelected[i]
+			bodySelected[i];
 
 			if(!bodySelected[i].selected){
                 addClass(bodyType, 'invalid');
@@ -317,8 +333,11 @@ var straightUpForm = function() {
 			alert("Error: You didn't select a body type");
 			console.log("select a body type");
 		} else {
-			console.log("yay. a body type was selected!")
+			console.log("yay. a body type was selected!");
 		}
+
+
+
 
 
 
@@ -349,10 +368,79 @@ var straightUpForm = function() {
 		}
 
 
+
+
+
 		// typeperson field-----------------
+
+	// if you check >8 checkboxes, Error: you chose too many
+	// if you check <=8 checkboxes, you chose the correct amount
+
+		var numberChecked = 0;
+
+		for (var i = typeChecked.length - 1; i >= 0; i--) {
+
+			// if none are checked, its wrong 
+			if (!typeChecked[i].checked) {
+				addClass(typePerson, 'invalid');
+				removeClass(typePerson, 'valid');
+
+			} else if (typeChecked[i].checked && typeChecked[i].checked <= 8){
+				numberChecked++;
+				addClass(typePerson, 'valid');
+				removeClass(typePerson, 'invalid');
+			}
+		}
+		// if at least one is checked and # of checked items is less than 9 its right
+		if (numberChecked > 0 && numberChecked <= 8) {
+			console.log("WOOO HOO your type was selected");
+			
+		} else {
+			typePerson.focus();
+			alert("ERROR: Select one type but NO MORE than 8.");
+			console.log("Your type is either NOT selected or you chose too many");
+		}
+
+
+
+
+
 
 
 		// matchsage field-----------------
+
+	// if you choose 1 age range box, you chose correctly
+	// if its null or unchecked, Error: field is empty
+
+		var matchAgeValid = false;
+
+		for (var i = matchsAgeRangeClicked.length - 1; i >= 0; i--) {
+				matchsAgeRangeClicked[i];
+
+			if (!matchsAgeRangeClicked[i].checked) {
+				addClass(matchsAge, 'invalid');
+				removeClass(matchsAge, 'valid');
+
+			} else {
+				matchAgeValid = true;
+				addClass(matchsAge, 'valid');
+				removeClass(matchsAge, 'invalid');
+			}
+		}
+
+		if (!matchAgeValid) {
+			matchsAge.focus();
+			alert("ERROR: What age range are you looking for?");
+			console.log("You didn't choose an age range for your match");
+		} else {
+			console.log("you chose an age range");
+		}
+
+
+
+
+
+
 
 
 		// perfectdate field-----------------
@@ -360,7 +448,7 @@ var straightUpForm = function() {
 		var validatedDate = false;
 
 		for (var i = 0; i < dateSelected.length; i++) {
-			dateSelected[i]
+			dateSelected[i];
 
 			if (!dateSelected[i].selected) {
 				addClass(date, 'invalid');
@@ -382,13 +470,16 @@ var straightUpForm = function() {
 		}
 
 
+
+
+
 		// matchsheight field-----------------
 
 
 		var matchHeightValid = false;
 
 		for (var i = matchHeightClicked.length - 1; i >= 0; i--) {
-				matchHeightClicked[i]
+				matchHeightClicked[i];
 
 			if (!matchHeightClicked[i].checked) {
 				addClass(matchHeight, 'invalid');
@@ -409,7 +500,24 @@ var straightUpForm = function() {
 		}
 
 
+
+
+
 		// tattoos field-----------------
+
+	// if the checkbox is checked, its yes 
+	// if the checkbox is unchecked/null, its no
+		if (!tattooChecked.checked || tattooChecked == null) {
+			addClass(tattoo, 'no');
+			removeClass(tattoo, 'yes');
+			console.log("no. i hate tattoos");
+		} else {
+			addClass(tattoo, 'yes');
+			removeClass(tattoo, 'no');
+			console.log("hell yas. i love tattoos");
+		}
+	
+
 
 
 
@@ -426,6 +534,9 @@ var straightUpForm = function() {
 		// 	addClass(email, 'invalid');
 		// 	removeClass(email, 'valid');
 		// }
+
+
+
 
 
 		// username field-----------------
@@ -454,6 +565,9 @@ var straightUpForm = function() {
 		// }
 
 
+
+
+
 		// password field-----------------
 
 		// if(password.value != "" && password.value == confirmPw.value) {
@@ -478,6 +592,9 @@ var straightUpForm = function() {
 		// }
 
 
+
+
+
 		// confirmPw field-----------------
 
 		// next btn-----------------
@@ -486,6 +603,8 @@ var straightUpForm = function() {
 
 
 	}
+
+
 
 // call to validate the form
 // validateForm();
@@ -511,23 +630,23 @@ var straightUpForm = function() {
 		e.preventDefault();
 		// if validation is correct/no errors and all fields are completed, go to next fieldset
 		goToNextFieldset();
-	})
+	});
 
 	previous.addEventListener('click', function(e) {
 		e.preventDefault();
 		goToPreviousFieldset();
-	})
+	});
 
 	submit.addEventListener('click', function(e) {
 		e.preventDefault();
 		// if validation is correct/no errors and all fields are completed, submit form
 		validateForm();
-	})
+	});
 
 
 	theForm.addEventListener("submit", function(e) {
 		event.preventDefault();
-	})
+	});
 
 };
 

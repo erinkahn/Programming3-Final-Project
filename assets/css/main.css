@@ -186,7 +186,7 @@ select {
 #name {
   height: 33px; }
 
-.switch, .tat-switch {
+.gender-switch, .tat-switch {
   position: relative;
   display: block;
   vertical-align: top;
@@ -198,10 +198,14 @@ select {
   cursor: pointer;
   box-sizing: content-box; }
 
-.switch-input, .tat-switch-input {
+.gender-switch-input, .tat-switch-input {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  opacity: 1;
   box-sizing: content-box; }
 
-.switch-label, .tat-switch-label {
+.gender-switch-label, .tat-switch-label {
   cursor: pointer;
   position: relative;
   display: block;
@@ -211,58 +215,60 @@ select {
   border-radius: inherit;
   box-shadow: inset 1px 0 1px 3px rgba(0, 0, 0, 0.07), inset 1px 1px 2px rgba(0, 0, 0, 0.07);
   box-sizing: content-box;
-  float: left;
-  width: 50%; }
+  width: 100%; }
 
-.switch-label:before, .switch-label:after,
+.gender-switch-label:before, .gender-switch-label:after,
 .tat-switch-label:before, .tat-switch-label:after {
   position: absolute;
   top: 52%;
   margin-top: -.5em;
   line-height: 1; }
 
-.switch-label:before, .tat-switch-label:before {
+.gender-switch-label:before, .tat-switch-label:before {
   right: 11px;
   color: gray;
   letter-spacing: 0.05em; }
 
-.switch-label:after, .tat-switch-label:after {
+.gender-switch-label:after, .tat-switch-label:after {
   left: 11px;
   color: gray;
   letter-spacing: 0.05em;
   opacity: 0; }
 
-.switch-input:checked ~ .switch-label:before,
+.gender-switch-input:checked ~ .gender-switch-label:before,
 .tat-switch-input:checked ~ .tat-switch-label:before {
   opacity: 0; }
 
-.switch-input:checked ~ .switch-label:after,
 .tat-switch-input:checked ~ .tat-switch-label:after {
-  opacity: 1; }
+  opacity: 1;
+  content: "yes";
+  float: right; }
 
-.switch-handle, .tat-switch-handle {
+.gender-switch-input:checked ~ .gender-switch-label:after {
+  opacity: 1;
+  content: "female";
+  float: right; }
+
+.tat-switch-input ~ .tat-switch-label:before {
+  content: "no"; }
+
+.gender-switch-input ~ .gender-switch-label:before {
+  content: "male"; }
+
+.gender-switch-handle, .tat-switch-handle {
   position: absolute;
   top: 3px;
   left: 3px;
   width: 50%;
   height: 35px;
   background: #ee2562;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2); }
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.2); }
 
-.switch-handle:before, .tat-switch-handle:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 40px;
-  height: 12px;
-  box-shadow: inset 1px 2px 1px rgba(0, 0, 0, 0.2); }
-
-.switch-input:checked ~ .switch-handle,
+.gender-switch-input:checked ~ .gender-switch-handle,
 .tat-switch-input:checked ~ .tat-switch-handle {
   left: 49%; }
 
-.switch-label, .switch-handle,
+.gender-switch-label, .gender-switch-handle,
 .tat-switch-label, .tat-switch-handle {
   transition: All 0.3s ease; }
 
@@ -361,10 +367,38 @@ select {
   width: 33.33%;
   float: left; }
 
+.matchage-p {
+  margin-top: 20px; }
+
 .age2 {
-  column-count: 3; }
-  .age2 .age-row input:hover {
-    background-color: #ee2562;
-    transition: 1.3s; }
+  width: 100%;
+  flex-order: 1;
+  display: flex;
+  padding-bottom: 30px; }
+  .age2 div {
+    padding: 10px; }
+
+.age-row {
+  width: 33.33%; }
+  .age-row input {
+    opacity: 0; }
+  .age-row label {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px; }
+    .age-row label:hover {
+      color: #ee2562;
+      transition: 1s;
+      border: 2px solid #ee2562;
+      padding: 9px 14px; }
+
+.age2 input:checked + label {
+  border: 2px solid #ee2562;
+  color: #ee2562; }
+
+.datep {
+  margin-top: 18px; }
 
 /*# sourceMappingURL=main.css.map */

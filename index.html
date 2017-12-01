@@ -49,14 +49,13 @@
 
         <div class="gender">
           <p class="mf">Your gender</p>
-          <label class="switch">
-            <input class="switch-input" type="radio" id="gender1" name="gender" value="female">Female
+          <label class="gender-switch">
+            <input class="gender-switch-input" type="checkbox" id="gender" name="gender" checked="checked" />
+            <span class="gender-switch-label" data-on="female" data-off="male"></span>
+            <span class="gender-switch-handle"></span>
           </label>
-          <label class="switch">
-            <input class="switch-input" type="radio" id="gender2" name="gender" value="male">Male
-          </label>
-            <span class="switch-handle"></span> 
         </div>
+
 
         <p class="age">Your age (21+ only)</p>
         <div class="age">
@@ -135,49 +134,58 @@
         <p class="type-person">What type of person do you look for? Check up to 10.</p>
         <div class="type-container">
           <div class="type">
-              <label><input type="checkbox" name="type"> nerdy</label>
-              <label><input type="checkbox" name="type"> shy</label>
-              <label><input type="checkbox" name="type"> athletic</label>
-              <label><input type="checkbox" name="type"> hipster</label>
-              <label><input type="checkbox" name="type"> sensitive</label>
-              <label><input type="checkbox" name="type"> quiet</label>
+              <label><input type="checkbox" name="type" value="nerdy"> nerdy</label>
+              <label><input type="checkbox" name="type" value="shy"> shy</label>
+              <label><input type="checkbox" name="type" value="athletic"> athletic</label>
+              <label><input type="checkbox" name="type" value="hipster"> hipster</label>
+              <label><input type="checkbox" name="type" value="sensitive"> sensitive</label>
+              <label><input type="checkbox" name="type" value="quiet"> quiet</label>
           </div>
           <div class="type">
-              <label><input type="checkbox" name="type"> smart</label> 
-              <label><input type="checkbox" name="type"> funny </label> 
-              <label><input type="checkbox" name="type"> musical</label> 
-              <label><input type="checkbox" name="type"> romantic </label> 
-              <label><input type="checkbox" name="type"> patient </label> 
-              <label><input type="checkbox" name="type"> active </label>  
+              <label><input type="checkbox" name="type" value="smart"> smart</label> 
+              <label><input type="checkbox" name="type" value="funny"> funny </label> 
+              <label><input type="checkbox" name="type" value="musical"> musical</label> 
+              <label><input type="checkbox" name="type" value="romantic"> romantic </label> 
+              <label><input type="checkbox" name="type" value="patient"> patient </label> 
+              <label><input type="checkbox" name="type" value="active"> active </label>  
           </div>
           <div class="type">
-              <label><input type="checkbox" name="type"> kind</label>
-              <label><input type="checkbox" name="type"> confident</label>
-              <label><input type="checkbox" name="type"> thoughtful </label> 
-              <label><input type="checkbox" name="type"> spontaneous</label> 
-              <label><input type="checkbox" name="type"> honest </label> 
-              <label><input type="checkbox" name="type"> religious </label> 
+              <label><input type="checkbox" name="type" value="kind"> kind</label>
+              <label><input type="checkbox" name="type" value="confident"> confident</label>
+              <label><input type="checkbox" name="type" value="thoughtful"> thoughtful </label> 
+              <label><input type="checkbox" name="type" value="spontaneous"> spontaneous</label> 
+              <label><input type="checkbox" name="type" value="honest"> honest </label> 
+              <label><input type="checkbox" name="type" value="religious"> religious </label> 
           </div>
         </div>
 
         <div class="clearfix"></div>
-        <p>How old do you want this person to be?</p>
+
+
+        <p class="matchage-p">How old do you want this person to be?</p>
         <div class="age2">
           <div class="age-row">
-            <input type="button" name="match-age" value="21-25">
-            <input type="button" name="match-age" value="36-40">
+              <input type="radio" name="match-age" value="21-25" id="21-25">
+              <label class="21-25 label" for="21-25">21-25</label> 
+              <input type="radio" name="match-age" value="36-40" id="36-40">
+              <label class="36-40 label" for="36-40">36-40</label> 
           </div>
           <div class="age-row">
-            <input type="button" name="match-age" value="26-29">
-            <input type="button" name="match-age" value="41-45">
+              <input type="radio" name="match-age" value="26-29" id="26-29">
+              <label class="26-29 label" for="26-29">26-29</label>
+              <input type="radio" name="match-age" value="41-45" id="41-45">
+              <label class="41-45 label" for="41-45">41-45</label> 
           </div>
           <div class="age-row">
-            <input type="button" name="match-age" value="30-35">
-            <input type="button" name="match-age" value="46-50">
+              <input type="radio" name="match-age" value="30-35" id="30-35">
+              <label class="30-35 label" for="30-35">30-35</label> 
+              <input type="radio" name="match-age" value="46-50" id="46-50">
+              <label class="46-50 label" for="46-50">46-50</label> 
           </div>
         </div>
 
-        <p>What's your ideal perfect date?</p>
+
+        <p class="p-date">What's your ideal perfect date?</p>
         <select class="date" required="">
           <option selected="true" disabled="disabled">hm...</option>
           <option value="movies" name="pdate">see a movie</option>
@@ -204,8 +212,8 @@
         <div class="tattoo">
           <p class="yn">Tattoos?</p>
           <label class="tat-switch">
-              <input class="tat-switch-input" type="checkbox" id="tat" name="tat" />
-              <span class="tat-switch-label" data-on="YES" data-off="HELL NO"></span>
+              <input class="tat-switch-input" type="checkbox" id="tat" name="tat" checked="checked"/>
+              <span class="tat-switch-label" data-on="yes" data-off="no"></span>
               <span class="tat-switch-handle"></span>
            </label>
         </div> 
