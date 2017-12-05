@@ -354,18 +354,34 @@ select {
   .shortm:hover, .tallm:hover, .giantm:hover {
     filter: brightness(1.2) opacity(0.6); }
 
-.hair-container .hair input {
-  display: block;
-  width: 25%;
-  float: left; }
+.lookingfor-container .looking {
+  margin-left: 45px; }
+  .lookingfor-container .looking input, .lookingfor-container .looking label {
+    display: block;
+    float: left;
+    width: 50%; }
+    .lookingfor-container .looking input :first-child, .lookingfor-container .looking label :first-child {
+      margin: auto 33px; }
+
+.hair-container {
+  margin-left: -25px; }
+  .hair-container .hair input {
+    display: block;
+    width: 33.33%;
+    float: left;
+    margin-left: 35px; }
+  .hair-container .hair label {
+    text-align: center; }
 
 .type-person {
   padding-bottom: 5px; }
 
-.type-container .type label {
-  display: block;
-  width: 33.33%;
-  float: left; }
+.type-container {
+  margin-left: 28px; }
+  .type-container .type label {
+    display: block;
+    width: 33.33%;
+    float: left; }
 
 .matchage-p {
   margin-top: 20px; }

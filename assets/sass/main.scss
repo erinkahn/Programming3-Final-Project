@@ -450,44 +450,43 @@ select{
 
 // what are you looking for --------------------------------------------------
 
-// .lookingfor-container{
-	
-// 	p{
-// 		padding-bottom: 13px;
-// 	}
+.lookingfor-container{
 
-// 	.looking{
-// 		display: inline-flex;
-// 		flex-direction: row;
+	.looking {
 
+		margin-left: 45px;
 
-// 		label{
-// 			margin-right: 62px;
-// 			white-space: nowrap;
-
-// 		}
-
-// 		input{
-// 			margin-top: 10px;
-
-// 			&#dating{
-// 				margin-left: -22px;
-// 			}
-
-// 		}
-// 	}		
-// }
-
-.hair-container {
-
-	.hair{
-		
-		input {
+		input, label{
 			display: block;
-			width: 25%;
 			float: left;
+			width: 50%;
+
+			:first-child{
+				margin: auto 33px;
+			}
+
 		}
 
+	}
+		
+			
+}
+
+.hair-container {
+	margin-left: -25px;
+
+	.hair{
+
+		input {
+			display: block;
+			width: 33.33%;
+			float: left;
+			margin-left: 35px;
+			
+		}
+		label{
+			text-align: center;
+		}
 	}
 
 }
@@ -499,6 +498,7 @@ select{
 }
 
 .type-container {
+	margin-left: 28px;
 
 	.type{
 		
