@@ -177,19 +177,20 @@ var straightUpForm = function() {
 	}
 
 
-// -----------form validation function-------------------------
+// -----------FIELDSET 1 validation-------------------------
 
 
 	function validatePage1(form) {
 
 
 		// name field-----------------
-			
+		var nameValid = false;
 		
 		if (name.value !== '' && typeof name.value === 'string') {
 			console.log('my name is', name.value);
 			addClass(name, 'valid');
 			removeClass(name, 'invalid');
+			nameValid = true;
 			
 
 		} else if (name.value === '' || typeof name.value !== 'string') {
@@ -201,30 +202,35 @@ var straightUpForm = function() {
 		}
 
 
+
 		// gender field-----------------
 
 		// if the checkbox is NOT checked, its male
 		// if the checkbox is checked, its female
-			if (!genderChecked.checked || genderChecked == null) {
-				addClass(gender, 'female');
-				removeClass(gender, 'male');
-				console.log("I'm a male");
-				
-			} else {
-				addClass(gender, 'male');
-				removeClass(gender, 'female');
-				console.log("I am a female!");
-			}
+
+
+		if (!genderChecked.checked || genderChecked == null) {
+			addClass(gender, 'female');
+			removeClass(gender, 'male');
+			console.log("I'm a male");
+			
+		} else {
+			addClass(gender, 'male');
+			removeClass(gender, 'female');
+			console.log("I am a female!");
+		}
 
 
 
 		// user age field-----------------
 
+		var ageValid = false;
 
 		if (ageOutput.value >= 21) {
 			console.log('you are of age');
 			addClass(age, 'valid');
 			removeClass(age, 'invalid');
+			ageValid = true;
 
 		} else {
 			alert("Error: You're a baby. GTFO.");
@@ -296,7 +302,7 @@ var straightUpForm = function() {
 		// bodytype field-----------------
 			
 
-		var bodvalidated = false;
+		var bodValid = false;
 
 		for (var i = bodySelected.length - 1; i >= 0; i--) {
 			bodySelected[i];
@@ -305,13 +311,13 @@ var straightUpForm = function() {
                 addClass(bodyType, 'invalid');
 				removeClass(bodyType, 'valid');
 			} else {
-				bodvalidated = true;
+				bodValid = true;
 				addClass(bodyType, 'valid');
 				removeClass(bodyType, 'invalid');
 			}
 		}
 
-		if (!bodvalidated) {
+		if (!bodValid) {
 			bodyType.focus();
 			alert("Error: You didn't select a body type");
 			console.log("select a body type");
@@ -348,7 +354,23 @@ var straightUpForm = function() {
 		}
 
 
+		// if validation is correct/no errors and all fields are completed, go to next fieldset
+		if (nameValid && ageValid && hairValid && heightValid && bodValid && lookingForValid) {
+			//all fields are valid
+			return true;
+
+		} else {
+			// one or more fields are invalid
+			return false;
+		}
+
+
 	};
+
+
+
+// -----------FIELDSET 2 validation-------------------------
+
 
 
 
@@ -359,6 +381,7 @@ var straightUpForm = function() {
 		// if you check >8 checkboxes, Error: you chose too many
 		// if you check <=8 checkboxes, you chose the correct amount
 
+		var numberValid = false;
 		var numberChecked = 0;
 
 		for (var i = typeChecked.length - 1; i >= 0; i--) {
@@ -370,6 +393,7 @@ var straightUpForm = function() {
 
 			} else if (typeChecked[i].checked && typeChecked[i].checked <= 8){
 				numberChecked++;
+				numberValid = true;
 				addClass(typePerson, 'valid');
 				removeClass(typePerson, 'invalid');
 			}
@@ -420,13 +444,9 @@ var straightUpForm = function() {
 
 
 
-
-
-
-
 		// perfectdate field-----------------
 
-		var validatedDate = false;
+		var dateValid = false;
 
 		for (var i = 0; i < dateSelected.length; i++) {
 			dateSelected[i];
@@ -436,13 +456,13 @@ var straightUpForm = function() {
 				removeClass(date, 'valid');
 
 			} else {
-				validatedDate = true;
+				dateValid = true;
 				addClass(date, 'valid');
 				removeClass(date, 'invalid');
 			}
 		}
 
-		if (!validatedDate) {
+		if (!dateValid) {
 			date.focus();
 			alert("Error: omg whats your perfect date");
 			console.log("you didnt choose your perfect date");
@@ -497,26 +517,38 @@ var straightUpForm = function() {
 			removeClass(tattoo, 'no');
 			console.log("hell yas. i love tattoos");
 		}
+
+
+		// if validation is correct/no errors and all fields are completed, go to next fieldset
+		if ( numberValid && matchAgeValid && dateValid && matchHeightValid) {
+			//all fields are valid
+			return true;
+
+		} else {
+			// one or more fields are invalid
+			return false;
+		}
 	
 
 	};
 
 
 
-
+// -----------FIELDSET 3 validation-------------------------
 
 
 	function validatePage3(form) {
 
 
 		// email field-----------------
-
+		emailValid = false;
 
 		// if email matches emailcode > its valid
 		if (email.value.match(emailCode)) {
 			addClass(email, 'valid');
 			removeClass(email, 'invalid');
-			console.log('you entered a CORRECT email')
+			emailValid = true;
+			console.log('you entered a CORRECT email');
 
 		} else {
 			alert("Error: Enter a valid email address.");
@@ -530,11 +562,12 @@ var straightUpForm = function() {
 
 		// password -----------------
 
-
+		passwordValid = false;
 		
 		if (password.value != "" && password.value.length > 6) {
 			addClass(password, 'valid');
 			removeClass(password, 'invalid');
+			passwordValid = true;
 			console.log('yay you followed instructions');
 	        
 	    } else {
@@ -548,9 +581,12 @@ var straightUpForm = function() {
 
 		// confirm password -----------
 
+		confirmValid = false;
+
 		if (confirmPw.value != "" && confirmPw.value == password.value) {
 			addClass(confirmPw, 'valid');
 			removeClass(confirmPw, 'invalid');
+			confirmValid = true;
 			console.log('yay confirmation pw matches!!!');
 		} else {
 			alert("Error: your confirmation password isnt correct!");
@@ -558,6 +594,16 @@ var straightUpForm = function() {
 	        confirmPw.focus();
 	        addClass(confirmPw, 'invalid');
 			removeClass(confirmPw, 'valid');
+		}
+
+		// if validation is correct/no errors and all fields are completed, go to next fieldset
+		if ( emailValid && passwordValid && confirmValid) {
+			//all fields are valid
+			return true;
+
+		} else {
+			// one or more fields are invalid
+			return false;
 		}
 
 
@@ -576,10 +622,10 @@ var straightUpForm = function() {
 	// button event listener clicks
 	nextPageOne.addEventListener('click', function(e) {
 		e.preventDefault();
-		// if validation is correct/no errors and all fields are completed, go to next fieldset
-		if ( /* there are errors or alerts */) {
-			validatePage1();
-		} else {
+		// when the user clicks next on page 1, validate page 1, 
+		// and if the validation function returns true (all fields valid), 
+		// go to the next page
+		if ( validatePage1() ) {
 			goToNextFieldset();
 		}
 
@@ -587,12 +633,13 @@ var straightUpForm = function() {
 
 	nextPageTwo.addEventListener('click', function(e) {
 		e.preventDefault();
-		// if validation is correct/no errors and all fields are completed, go to next fieldset
-		if ( /* there are errors or alerts */) {
-			validatePage2();
-		} else {
+		// when the user clicks next on page 2, validate page 2, 
+		// and if the validation function returns true (all fields valid), 
+		// go to the next page
+		if ( validatePage2() ) {
 			goToNextFieldset();
 		}
+
 	});
 
 
@@ -602,15 +649,13 @@ var straightUpForm = function() {
 			e.preventDefault();
 			goToPreviousFieldset();
 		})
-	}
+	};
+
 
 	submit.addEventListener('click', function(e) {
 		e.preventDefault();
-		// if validation is correct/no errors and all fields are completed, submit form
-		if ( /* there are errors or alerts */) {
-			validatePage3();
-		} else {
-			//submit;
+		if ( validatePage3() ) {
+			goToNextFieldset(); //make a 4th fieldset to confirm account
 		}
 	});
 
