@@ -7,22 +7,25 @@
 // when youre on tell us about you, 
 // 		make personal details active by highlighting bkg of personal details bar 1
 // 		hide preferences and account setup
-//		make the next button link to the preferences page
+//		hide previous and submit buttons
+//		make the next button link to 2nd fieldset ONLY if validation is correct
 	
 
 // when youre on preferences,
 // 		make preferences active by highlighting bkg of preferences bar 2
 // 		hide personal details and account setup
-// 		make the next button link to the accoundt setup page
-// 		make the previous button link to the about you page
+//		hide submit button
+// 		make the previous button link to first fieldset
+// 		make the next button link to 3rd fieldset ONLY if validation is correct
 
 // when youre on account setup, 
 // 		make account setup active by highlighting bkg of account setup bar 3
 // 		hide personal deetails and account setup
-// 		make the submit button show check mark/account made!
-// 		make the previous button link to the preferences page
+// 		make the submit button validate ONLY if there are no errors
+// 		make the previous button link to 2nd fieldset
 
 //---------------------------------------------------------------------
+
 
 var straightUpForm = function() {
 
@@ -33,8 +36,9 @@ var straightUpForm = function() {
 
 	// button variables
 	var allButtons = document.querySelectorAll('.action-button');
-	var next = document.querySelector('.next.action-button');
-	var previous = document.querySelector('.previous.action-button');
+	var nextPageOne = document.querySelector('.f1 .next.action-button');
+	var nextPageTwo = document.querySelector('.f2 .next.action-button');
+	var previous = document.querySelectorAll('.previous.action-button');
 	var submit = document.querySelector('.submit.action-button');
 
 	// 3 fieldset variables
@@ -176,9 +180,7 @@ var straightUpForm = function() {
 // -----------form validation function-------------------------
 
 
-
-	function validateForm(form) {
-
+	function validatePage1(form) {
 
 
 		// name field-----------------
@@ -199,9 +201,6 @@ var straightUpForm = function() {
 		}
 
 
-
-
-
 		// gender field-----------------
 
 		// if the checkbox is NOT checked, its male
@@ -216,9 +215,6 @@ var straightUpForm = function() {
 				removeClass(gender, 'female');
 				console.log("I am a female!");
 			}
-
-
-
 
 
 
@@ -238,9 +234,7 @@ var straightUpForm = function() {
 			removeClass(age, 'valid');
 		}
 
-		
-
-
+	
 
 
 
@@ -271,10 +265,6 @@ var straightUpForm = function() {
 		}
 
 
-
-
-
-
 		// users height field-----------------
 
 
@@ -300,9 +290,6 @@ var straightUpForm = function() {
 		} else {
 			console.log("you chose your height");
 		}
-
-
-
 
 
 
@@ -335,9 +322,6 @@ var straightUpForm = function() {
 
 
 
-
-
-
 		// lookingfor field-----------------
 
 
@@ -364,13 +348,16 @@ var straightUpForm = function() {
 		}
 
 
+	};
 
 
+
+	function validatePage2(form) {
 
 		// typeperson field-----------------
 
-	// if you check >8 checkboxes, Error: you chose too many
-	// if you check <=8 checkboxes, you chose the correct amount
+		// if you check >8 checkboxes, Error: you chose too many
+		// if you check <=8 checkboxes, you chose the correct amount
 
 		var numberChecked = 0;
 
@@ -387,6 +374,7 @@ var straightUpForm = function() {
 				removeClass(typePerson, 'invalid');
 			}
 		}
+
 		// if at least one is checked and # of checked items is less than 9 its right
 		if (numberChecked > 0 && numberChecked <= 8) {
 			console.log("WOOO HOO your type was selected");
@@ -400,13 +388,10 @@ var straightUpForm = function() {
 
 
 
-
-
-
 		// matchsage field-----------------
 
-	// if you choose 1 age range box, you chose correctly
-	// if its null or unchecked, Error: field is empty
+		// if you choose 1 age range box, you chose correctly
+		// if its null or unchecked, Error: field is empty
 
 		var matchAgeValid = false;
 
@@ -501,8 +486,8 @@ var straightUpForm = function() {
 
 		// tattoos field-----------------
 
-	// if the checkbox is checked, its yes 
-	// if the checkbox is unchecked/null, its no
+		// if the checkbox is checked, its yes 
+		// if the checkbox is unchecked/null, its no
 		if (!tattooChecked.checked || tattooChecked == null) {
 			addClass(tattoo, 'no');
 			removeClass(tattoo, 'yes');
@@ -514,7 +499,14 @@ var straightUpForm = function() {
 		}
 	
 
+	};
 
+
+
+
+
+
+	function validatePage3(form) {
 
 
 		// email field-----------------
@@ -536,9 +528,6 @@ var straightUpForm = function() {
 
 
 
-
-
-
 		// password -----------------
 
 
@@ -557,8 +546,6 @@ var straightUpForm = function() {
 		}
 
 
-
-
 		// confirm password -----------
 
 		if (confirmPw.value != "" && confirmPw.value == password.value) {
@@ -574,58 +561,57 @@ var straightUpForm = function() {
 		}
 
 
+	};
 
-
-		// next btn-----------------
 		
 
 
-		// previous btn-----------------
-		
 
 
-		// submit btn-----------------
-
-
-	}
-
-
-
-// call to validate the form
-// validateForm();
-
-
-
-// ------------ make all fields required ---------------
-
-// var allSelections = document.querySelectorAll('select');
-
-// document.querySelectorAll( '#msform' ).validate({
-//     rules: {
-//         allSelections: { required: true }
-//     }
-// });
 
 
 //---------------EVENT LISTENERS -------------------------
 
 
 	// button event listener clicks
-	next.addEventListener('click', function(e) {
+	nextPageOne.addEventListener('click', function(e) {
 		e.preventDefault();
 		// if validation is correct/no errors and all fields are completed, go to next fieldset
-		goToNextFieldset();
+		if ( /* there are errors or alerts */) {
+			validatePage1();
+		} else {
+			goToNextFieldset();
+		}
+
 	});
 
-	previous.addEventListener('click', function(e) {
+	nextPageTwo.addEventListener('click', function(e) {
 		e.preventDefault();
-		goToPreviousFieldset();
+		// if validation is correct/no errors and all fields are completed, go to next fieldset
+		if ( /* there are errors or alerts */) {
+			validatePage2();
+		} else {
+			goToNextFieldset();
+		}
 	});
+
+
+	// looping through all the previous buttons
+	for (var i = 0; i < previous.length; i++) {
+		previous[i].addEventListener('click', function(e) {
+			e.preventDefault();
+			goToPreviousFieldset();
+		})
+	}
 
 	submit.addEventListener('click', function(e) {
 		e.preventDefault();
 		// if validation is correct/no errors and all fields are completed, submit form
-		validateForm();
+		if ( /* there are errors or alerts */) {
+			validatePage3();
+		} else {
+			//submit;
+		}
 	});
 
 
