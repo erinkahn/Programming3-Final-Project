@@ -226,7 +226,7 @@ var straightUpForm = function() {
 
 		var ageValid = false;
 
-		if (ageOutput.value >= 21) {
+		if (ageSlider.value >= 21) {
 			console.log('you are of age');
 			addClass(age, 'valid');
 			removeClass(age, 'invalid');
@@ -384,7 +384,7 @@ var straightUpForm = function() {
 		var numberValid = false;
 		var numberChecked = 0;
 
-		for (var i = typeChecked.length - 1; i >= 0; i--) {
+		for (var i = 0; i < typeChecked.length - 1; i++) {
 
 			// if none are checked, its wrong 
 			if (!typeChecked[i].checked) {
@@ -520,7 +520,7 @@ var straightUpForm = function() {
 
 
 		// if validation is correct/no errors and all fields are completed, go to next fieldset
-		if ( numberValid && matchAgeValid && dateValid && matchHeightValid) {
+		if (numberValid && matchAgeValid && dateValid && matchHeightValid) {
 			//all fields are valid
 			return true;
 
@@ -617,7 +617,7 @@ var straightUpForm = function() {
 
 
 //---------------EVENT LISTENERS -------------------------
-
+//2nd filedset error 
 
 	// button event listener clicks
 	nextPageOne.addEventListener('click', function(e) {
@@ -655,14 +655,14 @@ var straightUpForm = function() {
 	submit.addEventListener('click', function(e) {
 		e.preventDefault();
 		if ( validatePage3() ) {
-			goToNextFieldset(); //make a 4th fieldset to confirm account
+			alert(`Congrats! Your account is created. Now, let's find you a match!`);
 		}
 	});
 
 
-	theForm.addEventListener("submit", function(e) {
-		event.preventDefault();
-	});
+	// theForm.addEventListener("submit", function(e) {
+	// 	e.preventDefault();
+	// });
 
 };
 

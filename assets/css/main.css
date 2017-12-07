@@ -417,4 +417,14 @@ select {
 .datep {
   margin-top: 18px; }
 
+#dialog {
+  justify-content: center;
+  background-color: #ee2562;
+  color: white;
+  padding: 50px;
+  display: none; }
+
+#dialog:target {
+  display: block; }
+
 /*# sourceMappingURL=main.css.map */

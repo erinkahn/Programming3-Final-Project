@@ -60,7 +60,7 @@
         <p class="age">Your age (21+ only)</p>
         <div class="age">
           <input type = "range" min="16" max="50" class="slider" id="myRange" onchange="rangevalue.value=value"/>
-          <output id="rangevalue" value=""></output>
+          <div id="rangevalue" value=""></div>
         </div>
 
 
@@ -136,7 +136,7 @@
         <h2 class="fs-title">WHAT'S YOUR TYPE</h2>
         <h3 class="fs-subtitle">Let's find you a good match</h3>
 
-        <p class="type-person">What type of person do you look for? Check up to 10.</p>
+        <p class="type-person">What type of person do you look for? Check up to 8.</p>
         <div class="type-container">
           <div class="type">
               <label><input type="checkbox" name="type" value="nerdy"> nerdy</label>
@@ -246,11 +246,16 @@
 
 
 
+
     </form>
 
 
 
     <script src="assets/js/main.js"></script>
+    <script src="bower_components/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
   </body>
 </html>
