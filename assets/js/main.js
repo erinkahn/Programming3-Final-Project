@@ -548,8 +548,8 @@ var straightUpForm = function() {
 
 
 		// email field-----------------
-		emailValid = false;
-
+	
+		var emailValid = false;
 		// if email matches emailcode > its valid
 		if (email.value.match(emailCode)) {
 			addClass(email, 'valid');
@@ -567,9 +567,10 @@ var straightUpForm = function() {
 
 
 
+
 		// password -----------------
 
-		passwordValid = false;
+		var passwordValid = false;
 		
 		if (password.value != "" && password.value.length > 6) {
 			addClass(password, 'valid');
@@ -588,7 +589,7 @@ var straightUpForm = function() {
 
 		// confirm password -----------
 
-		confirmValid = false;
+		var confirmValid = false;
 
 		if (confirmPw.value != "" && confirmPw.value == password.value) {
 			addClass(confirmPw, 'valid');
