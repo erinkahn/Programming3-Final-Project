@@ -1,3 +1,4 @@
+
 "use strict";
 
 //---------------------------------------------------------------------
@@ -109,7 +110,7 @@ var straightUpForm = function() {
 		// loop through the three progress icons
 		for (var i = 0; i < progressBar.length; i++) {
 			progressBar[i];
-			console.log(progressBar[i]);
+			// console.log(progressBar[i]);
 
 			if ( currentFieldset == i ) {
 				progressBar[i].classList.add('active');	
@@ -121,7 +122,7 @@ var straightUpForm = function() {
 		// loop through the three fields sets
 		for (i = 0; i < allFieldsets.length; i++) {
 			allFieldsets[i];
-			console.log(allFieldsets[i]);
+			// console.log(allFieldsets[i]);
 
 			if ( currentFieldset == i ) {
 				allFieldsets[i].classList.add('active');	
@@ -139,7 +140,7 @@ var straightUpForm = function() {
 		if (currentFieldset < allFieldsets.length) {
 			loopThroughFieldsets();
 		} else {
-			alert('Your account has been created!'); 
+			// alert('Your account has been created!'); 
 		}
 	};
 
@@ -181,7 +182,8 @@ var straightUpForm = function() {
 
 
 	function validatePage1(form) {
-
+		console.log('validate page 1');
+		// console.log('validate page 1');
 
 		// name field-----------------
 		var nameValid = false;
@@ -212,12 +214,12 @@ var straightUpForm = function() {
 		if (!genderChecked.checked || genderChecked == null) {
 			addClass(gender, 'female');
 			removeClass(gender, 'male');
-			console.log("I'm a male");
+			// console.log("I'm a male");
 			
 		} else {
 			addClass(gender, 'male');
 			removeClass(gender, 'female');
-			console.log("I am a female!");
+			// console.log("I am a female!");
 		}
 
 
@@ -227,14 +229,14 @@ var straightUpForm = function() {
 		var ageValid = false;
 
 		if (ageSlider.value >= 21) {
-			console.log('you are of age');
+			// console.log('you are of age');
 			addClass(age, 'valid');
 			removeClass(age, 'invalid');
 			ageValid = true;
 
 		} else {
 			alert("Error: You're a baby. GTFO.");
-			console.log("Youre a baby. GTFO");                                  
+			// console.log("Youre a baby. GTFO");                                  
 			age.focus();
 			addClass(age, 'invalid');
 			removeClass(age, 'valid');
@@ -265,9 +267,9 @@ var straightUpForm = function() {
 		if (!hairValid) {
 			hair.focus();
 			alert("ERROR: Your hair color is NOT selected");
-			console.log("Your hair color is NOT selected");
+			// console.log("Your hair color is NOT selected");
 		} else {
-			console.log("hair color was selected");
+			// console.log("hair color was selected");
 		}
 
 
@@ -292,9 +294,9 @@ var straightUpForm = function() {
 
 		if (!heightValid) {
 			alert("ERROR: You didn't click your height");
-			console.log("Your height is NOT selected");
+			// console.log("Your height is NOT selected");
 		} else {
-			console.log("you chose your height");
+			// console.log("you chose your height");
 		}
 
 
@@ -320,9 +322,9 @@ var straightUpForm = function() {
 		if (!bodValid) {
 			bodyType.focus();
 			alert("Error: You didn't select a body type");
-			console.log("select a body type");
+			// console.log("select a body type");
 		} else {
-			console.log("yay. a body type was selected!");
+			// console.log("yay. a body type was selected!");
 		}
 
 
@@ -344,7 +346,7 @@ var straightUpForm = function() {
 		if (lookingForValid) {
 			addClass(lookingFor, 'valid');
 			removeClass(lookingFor, 'invalid');
-			console.log("looking for is selected");
+			// console.log("looking for is selected");
 
 		} else {
 			alert("ERROR: You didn't choose what you're looking for");
@@ -381,6 +383,7 @@ var straightUpForm = function() {
 		// if you check >8 checkboxes, Error: you chose too many
 		// if you check <=8 checkboxes, you chose the correct amount
 
+		
 		var numberValid = false;
 		var numberChecked = 0;
 
@@ -393,7 +396,6 @@ var straightUpForm = function() {
 
 			} else if (typeChecked[i].checked && typeChecked[i].checked <= 8){
 				numberChecked++;
-				numberValid = true;
 				addClass(typePerson, 'valid');
 				removeClass(typePerson, 'invalid');
 			}
@@ -401,12 +403,14 @@ var straightUpForm = function() {
 
 		// if at least one is checked and # of checked items is less than 9 its right
 		if (numberChecked > 0 && numberChecked <= 8) {
+			numberValid = true;
+			console.log('number valid');
 			console.log("WOOO HOO your type was selected");
 			
 		} else {
 			typePerson.focus();
 			alert("ERROR: Select one type but NO MORE than 8.");
-			console.log("Your type is either NOT selected or you chose too many");
+			// console.log("Your type is either NOT selected or you chose too many");
 		}
 
 
@@ -436,9 +440,9 @@ var straightUpForm = function() {
 		if (!matchAgeValid) {
 			matchsAge.focus();
 			alert("ERROR: What age range are you looking for?");
-			console.log("You didn't choose an age range for your match");
+			// console.log("You didn't choose an age range for your match");
 		} else {
-			console.log("you chose an age range");
+			// console.log("you chose an age range");
 		}
 
 
@@ -465,9 +469,9 @@ var straightUpForm = function() {
 		if (!dateValid) {
 			date.focus();
 			alert("Error: omg whats your perfect date");
-			console.log("you didnt choose your perfect date");
+			// console.log("you didnt choose your perfect date");
 		} else {
-			console.log("you chose a perfect date");
+			// console.log("you chose a perfect date");
 		}
 
 
@@ -495,9 +499,9 @@ var straightUpForm = function() {
 
 		if (!matchHeightValid) {
 			alert("ERROR: What height do you want them to be?");
-			console.log("Your matchs height is NOT selected");
+			// console.log("Your matchs height is NOT selected");
 		} else {
-			console.log("you chose your matchs height");
+			// console.log("you chose your matchs height");
 		}
 
 
@@ -511,11 +515,11 @@ var straightUpForm = function() {
 		if (!tattooChecked.checked || tattooChecked == null) {
 			addClass(tattoo, 'no');
 			removeClass(tattoo, 'yes');
-			console.log("no. i hate tattoos");
+			// console.log("no. i hate tattoos");
 		} else {
 			addClass(tattoo, 'yes');
 			removeClass(tattoo, 'no');
-			console.log("hell yas. i love tattoos");
+			// console.log("hell yas. i love tattoos");
 		}
 
 
@@ -528,7 +532,9 @@ var straightUpForm = function() {
 			// one or more fields are invalid
 			return false;
 		}
-	
+		
+
+		
 
 	};
 
@@ -538,6 +544,7 @@ var straightUpForm = function() {
 
 
 	function validatePage3(form) {
+		// console.log('validate page 3');
 
 
 		// email field-----------------
@@ -548,11 +555,11 @@ var straightUpForm = function() {
 			addClass(email, 'valid');
 			removeClass(email, 'invalid');
 			emailValid = true;
-			console.log('you entered a CORRECT email');
+			// console.log('you entered a CORRECT email');
 
 		} else {
 			alert("Error: Enter a valid email address.");
-			console.log('you entered the wrong email address')
+			// console.log('you entered the wrong email address')
 			email.focus();
 			addClass(email, 'invalid');
 			removeClass(email, 'valid');
@@ -568,11 +575,11 @@ var straightUpForm = function() {
 			addClass(password, 'valid');
 			removeClass(password, 'invalid');
 			passwordValid = true;
-			console.log('yay you followed instructions');
+			// console.log('yay you followed instructions');
 	        
 	    } else {
 			alert("Error: Password must contain at least six characters!");
-	        console.log('you didnt enter a correct password');
+	        // console.log('you didnt enter a correct password');
 	        password.focus();
 	        addClass(password, 'invalid');
 			removeClass(password, 'valid');
@@ -587,17 +594,20 @@ var straightUpForm = function() {
 			addClass(confirmPw, 'valid');
 			removeClass(confirmPw, 'invalid');
 			confirmValid = true;
-			console.log('yay confirmation pw matches!!!');
+			// console.log('yay confirmation pw matches!!!');
 		} else {
 			alert("Error: your confirmation password isnt correct!");
-	        console.log('confirmation password is wrong');
+	        // console.log('confirmation password is wrong');
 	        confirmPw.focus();
 	        addClass(confirmPw, 'invalid');
 			removeClass(confirmPw, 'valid');
 		}
 
+
+
+
 		// if validation is correct/no errors and all fields are completed, go to next fieldset
-		if ( emailValid && passwordValid && confirmValid) {
+		if (emailValid && passwordValid && confirmValid) {
 			//all fields are valid
 			return true;
 
@@ -605,6 +615,7 @@ var straightUpForm = function() {
 			// one or more fields are invalid
 			return false;
 		}
+
 
 
 	};
@@ -626,6 +637,7 @@ var straightUpForm = function() {
 		// and if the validation function returns true (all fields valid), 
 		// go to the next page
 		if ( validatePage1() ) {
+			// console.log('page one validated');
 			goToNextFieldset();
 		}
 
@@ -647,6 +659,7 @@ var straightUpForm = function() {
 	for (var i = 0; i < previous.length; i++) {
 		previous[i].addEventListener('click', function(e) {
 			e.preventDefault();
+			// console.log('page two validated');
 			goToPreviousFieldset();
 		})
 	};
@@ -655,6 +668,7 @@ var straightUpForm = function() {
 	submit.addEventListener('click', function(e) {
 		e.preventDefault();
 		if ( validatePage3() ) {
+			console.log("page three validated");
 			alert(`Congrats! Your account is created. Now, let's find you a match!`);
 		}
 	});
